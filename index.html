@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pourtsidis Generators - Πώληση & Ενοικίαση Γεννητριών</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Pourtsidis Generators - Πώληση &amp; Ενοικίαση Γεννητριών</title>
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//maps.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="images/banner-mobile.jpg" as="image" type="image/jpeg" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" href="images/banner.jpg" as="image" type="image/jpeg" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"></noscript>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <!-- Navigation -->
 <nav id="navbar">
     <div class="container">
         <div class="logo">
             <h1>Pourtsidis<span>Generators</span></h1>
         </div>
-        <div class="nav-toggle" id="navToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <ul class="nav-links" id="navLinks">
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-controls="nav-menu" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <ul class="nav-links" id="nav-menu">
             <li><a href="#home" class="nav-link">Αρχική</a></li>
             <li><a href="#about" class="nav-link">Σχετικά με Εμάς</a></li>
             <li><a href="#products" class="nav-link">Προϊόντα</a></li>
@@ -28,13 +38,14 @@
             <li><a href="#" class="btn-primary">Ζητήστε Προσφορά</a></li>
             <li class="language-switcher">
                 <a href="index.html" class="lang-btn active">GR</a>
-                <span class="lang-divider">|</span>
+                <span class="lang-divider" aria-hidden="true">|</span>
                 <a href="index-en.html" class="lang-btn">EN</a>
             </li>
         </ul>
     </div>
 </nav>
 
+<main id="main-content">
 <!-- Hero Section -->
 <section id="home" class="hero">
     <div class="hero-content">
@@ -65,7 +76,12 @@
                 </ul>
             </div>
             <div class="about-image">
-                <img src="images/AboutUs.jpg" alt="Pourtsidis Generators Team">
+                <img
+                        src="images/AboutUs.jpg"
+                        srcset="images/AboutUs-small.jpg 480w, images/AboutUs-medium.jpg 960w, images/AboutUs.jpg 1920w"
+                        sizes="(max-width: 480px) 480px, (max-width: 960px) 960px, 1920px"
+                        alt="Pourtsidis Generators Team"
+                        loading="lazy">
             </div>
         </div>
     </div>
@@ -100,7 +116,12 @@
                         </ul>
                     </div>
                     <div class="product-gallery">
-                        <img src="images/1.jpg" alt="Residential Generator">
+                        <img
+                                src="images/1.jpg"
+                                srcset="images/1-small.jpg 480w, images/1-medium.jpg 960w, images/1.jpg 1920w"
+                                sizes="(max-width: 480px) 480px, (max-width: 960px) 960px, 1920px"
+                                alt="Residential Generator"
+                                loading="lazy">
                     </div>
                 </div>
             </div>
@@ -114,7 +135,12 @@
                         <p>Προσφέρουμε εξατομικευμένες λύσεις και τεχνική υποστήριξη για να σας βοηθήσουμε να επιλέξετε τον κατάλληλο κινητήρα για τις συγκεκριμένες ανάγκες σας.</p>
                     </div>
                     <div class="product-gallery">
-                        <img src="images/2.jpg" alt="Commercial Generator">
+                        <img
+                                src="images/2.jpg"
+                                srcset="images/2-small.jpg 480w, images/2-medium.jpg 960w, images/2.jpg 1920w"
+                                sizes="(max-width: 480px) 480px, (max-width: 960px) 960px, 1920px"
+                                alt="Commercial Generator"
+                                loading="lazy">
                     </div>
                 </div>
             </div>
@@ -127,7 +153,12 @@
                         <p>Προσφέρουμε εκτεταμένη υποστήριξη ανταλλακτικών για όλες τις γεννήτριες και κινητήρες μας, διασφαλίζοντας τη συνεχή και αποτελεσματική λειτουργία των συστημάτων σας. Με ένα ευρύ φάσμα διαθέσιμων ανταλλακτικών και εξειδικευμένες υπηρεσίες συντήρησης, είμαστε εδώ για να καλύψουμε κάθε ανάγκη σας, από την πρόληψη βλαβών έως την άμεση αντικατάσταση εξαντλημένων εξαρτημάτων. Εμπιστευτείτε τους ειδικούς μας για την παροχή γρήγορης και αξιόπιστης υποστήριξης, διατηρώντας τις εγκαταστάσεις σας σε άριστη κατάσταση.</p>
                     </div>
                     <div class="product-gallery">
-                        <img src="images/4.jpg" alt="Industrial Generator">
+                        <img
+                                src="images/4.jpg"
+                                srcset="images/4-small.jpg 480w, images/4-medium.jpg 960w, images/4.jpg 1920w"
+                                sizes="(max-width: 480px) 480px, (max-width: 960px) 960px, 1920px"
+                                alt="Industrial Generator"
+                                loading="lazy">
                     </div>
                 </div>
             </div>
@@ -136,7 +167,7 @@
             <div class="product-category" data-category="portable">
                 <div class="product-content">
                     <div class="product-text">
-                        <h3>Ανταλλακτικά/h3>
+                        <h3>Ανταλλακτικά</h3>
                         <p>Ευέλικτες, κινητές γεννήτριες για εργοτάξια, υπαίθριες εκδηλώσεις και καταστάσεις έκτακτης ανάγκης. Οι φορητές γεννήτριες μας συνδυάζουν αξιοπιστία με ευκολία.</p>
                         <p>Εύκολες στη μεταφορά και την εγκατάσταση, αυτές οι γεννήτριες παρέχουν ενέργεια όπου τη χρειάζεστε.</p>
                         <ul class="product-highlights">
@@ -148,7 +179,12 @@
                         <a href="#" class="btn-secondary">Προβολή Φορητών Προϊόντων</a>
                     </div>
                     <div class="product-gallery">
-                        <img src="images/2.jpg" alt="Portable Generator">
+                        <img
+                                src="images/2.jpg"
+                                srcset="images/2-small.jpg 480w, images/2-medium.jpg 960w, images/2.jpg 1920w"
+                                sizes="(max-width: 480px) 480px, (max-width: 960px) 960px, 1920px"
+                                alt="Portable Generator"
+                                loading="lazy">
                     </div>
                 </div>
             </div>
@@ -297,20 +333,20 @@
                 <form id="contactForm">
                     <div class="form-group">
                         <label for="name">Πλήρες Όνομα</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" autocomplete="name" aria-required="true" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Διεύθυνση Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" autocomplete="email" aria-required="true" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Αριθμός Τηλεφώνου</label>
-                        <input type="tel" id="phone" name="phone">
+                        <input type="tel" id="phone" name="phone" autocomplete="tel">
                     </div>
                     <div class="form-group">
                         <label for="subject">Θέμα</label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Επιλέξτε μια επιλογή</option>
+                        <select id="subject" name="subject" aria-required="true" required>
+                            <option value="" disabled selected>Επιλέξτε μια επιλογή</option>
                             <option value="Sales Inquiry">Πωλήσεις Γεννητριών</option>
                             <option value="Rental Inquiry">Ενοικίαση Γεννητριών</option>
                             <option value="Technical Support">Τεχνική Υποστήριξη</option>
@@ -319,7 +355,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Μήνυμα</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" aria-required="true" required></textarea>
                     </div>
                     <button type="submit" class="btn-primary">Αποστολή Μηνύματος</button>
                 </form>
@@ -330,8 +366,9 @@
             <div class="map">
                 <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.1839848947604!2d22.593811676564746!3d40.35409267144394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1357fd7f6241a193%3A0x4d22880c0f6e27f7!2z16DOn9Cf0KXQoNKE0KPQhtCU0JfQoy3QodCi0JDQktCg0JjQlNCT0KMg0J4u0JUu!5e0!3m2!1sen!2sgr!4v1712334350147!5m2!1sen!2sgr"
-                        width="100%"
+                        width="600"
                         height="400"
+                        title="Χάρτης τοποθεσίας Pourtsidis Generators"
                         style="border:0;"
                         allowfullscreen=""
                         loading="lazy"
@@ -341,6 +378,7 @@
         </div>
     </div>
 </section>
+</main>
 
 <!-- Footer -->
 <footer class="footer">
@@ -383,10 +421,10 @@
     </div>
 </footer>
 
-<a href="#home" class="scroll-to-top" id="scrollToTop">
-    <i class="fas fa-arrow-up"></i>
+<a href="#home" class="scroll-to-top" id="scrollToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
 </a>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>

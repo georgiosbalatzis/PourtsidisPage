@@ -1,28 +1,74 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Navbar Toggle
     const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
+    const navMenu = document.getElementById('nav-menu');
     const navbar = document.getElementById('navbar');
     const navLinksItems = document.querySelectorAll('.nav-link');
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    const closeMobileNav = function() {
+        if (!navMenu || !navToggle) return;
+
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+    };
 
     // Toggle mobile navigation
-    navToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-    });
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            const nextExpanded = !expanded;
+
+            navMenu.classList.toggle('active', nextExpanded);
+            navToggle.classList.toggle('active', nextExpanded);
+            navToggle.setAttribute('aria-expanded', String(nextExpanded));
+        });
+
+        document.addEventListener('click', function(e) {
+            if (navMenu.classList.contains('active')) {
+                if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                    closeMobileNav();
+                }
+            }
+        });
+    }
 
     // Close mobile menu when a navigation link is clicked
     navLinksItems.forEach(link => {
         link.addEventListener('click', function() {
-            navLinks.classList.remove('active');
+            closeMobileNav();
         });
     });
 
-    // Add navbar scroll effect
+    const updateScrollState = function() {
+        if (navbar) {
+            if (window.scrollY > 100) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        }
+
+        if (scrollToTopBtn) {
+            if (window.scrollY > 500) {
+                scrollToTopBtn.classList.add('active');
+            } else {
+                scrollToTopBtn.classList.remove('active');
+            }
+        }
+    };
+
+    let scrollTicking = false;
+    updateScrollState();
+
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.classList.add('nav-scrolled');
-        } else {
-            navbar.classList.remove('nav-scrolled');
+        if (!scrollTicking) {
+            requestAnimationFrame(function() {
+                updateScrollState();
+                scrollTicking = false;
+            });
+            scrollTicking = true;
         }
     });
 
@@ -79,23 +125,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Scroll to Top Button
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 500) {
-            scrollToTopBtn.classList.add('active');
-        } else {
-            scrollToTopBtn.classList.remove('active');
-        }
-    });
-
-    scrollToTopBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
+    }
 
     // Smooth scrolling for all anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -120,44 +158,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add animations to elements when they come into view
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.service-card, .product-content, .why-us-card');
+    const animatedElements = document.querySelectorAll('.service-card, .product-content, .why-us-card');
+    animatedElements.forEach(element => element.classList.add('animate-on-scroll'));
 
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
 
-            if (elementPosition < windowHeight - 100) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    };
-
-    // Set initial styles for animation
-    document.querySelectorAll('.service-card, .product-content, .why-us-card').forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-
-    // Run animation check on load and scroll
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
-
-    // Image lazy loading
-    if ('loading' in HTMLImageElement.prototype) {
-        // Browser supports native lazy loading
-        const images = document.querySelectorAll('img');
-        images.forEach(img => {
-            img.setAttribute('loading', 'lazy');
-        });
+        animatedElements.forEach(element => observer.observe(element));
     } else {
-        // Fallback for browsers that don't support lazy loading
-        // You could implement a JavaScript lazy loading library here
+        animatedElements.forEach(element => {
+            element.classList.add('visible');
+        });
     }
 
     // Initialize product grid
     // Show the first category by default
-    document.querySelector('.product-category[data-category="residential"]').classList.add('active');
+    const initialCategory = document.querySelector('.product-category[data-category="residential"]');
+    if (initialCategory) {
+        initialCategory.classList.add('active');
+    }
 });
