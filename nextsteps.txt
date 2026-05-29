@@ -1,0 +1,342 @@
+You are an expert web developer. The following tasks fix bugs, performance issues, and mobile/UX problems in this static website (index.html, index-en.html, styles.css, script.js). Apply all changes described below carefully and precisely.
+
+---
+
+## CONTEXT
+
+This is a bilingual (Greek/English) static website for a generator company. Stack: vanilla HTML5, CSS3 (custom properties, grid, flexbox), vanilla JS, Font Awesome 6.4.0, Google Fonts (Roboto), embedded Google Maps. No build tool or framework.
+
+---
+
+## TASK 1 — FIX CRITICAL HTML BUG
+
+**File:** index.html, line ~139
+**Problem:** Malformed closing tag missing the `<` character.
+**Fix:** Replace `Ανταλλακτικά/h3>` with `Ανταλλακτικά</h3>`
+
+---
+
+## TASK 2 — FIX SCRIPT LOADING (BLOCKING RENDER)
+
+**Files:** index.html, index-en.html
+**Problem:** `<script src="script.js">` is loaded without `defer`, blocking HTML parsing.
+**Fix:** Change to `<script src="script.js" defer></script>` in both files.
+
+---
+
+## TASK 3 — ADD THROTTLING TO SCROLL ANIMATION LISTENER
+
+**File:** script.js
+**Problem:** `animateOnScroll()` is called on every `scroll` event with no throttling. It calls `getBoundingClientRect()` on every element on every scroll tick, which is expensive.
+**Fix:**
+- Wrap the scroll listener with a throttle using `requestAnimationFrame`:
+
+```js
+let scrollTicking = false;
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      animateOnScroll();
+      scrollTicking = false;
+    });
+    scrollTicking = true;
+  }
+});
+```
+- Replace the existing bare `window.addEventListener('scroll', animateOnScroll)` call with this throttled version.
+- Also apply the same pattern to the existing `window.addEventListener('scroll', ...)` that handles the navbar style and scroll-to-top button visibility. All three scroll handlers (navbar, scroll-top button, animateOnScroll) should be merged into one rAF-throttled listener.
+
+---
+
+## TASK 4 — REMOVE REDUNDANT LAZY-LOADING JS
+
+**File:** script.js
+**Problem:** Lines that add `loading="lazy"` to images via JS are redundant — native `loading="lazy"` should be set directly in HTML.
+**Fix:**
+- Remove the JS block that queries all `img` elements and sets `loading = 'lazy'` programmatically.
+- Ensure every `<img>` in index.html and index-en.html has `loading="lazy"` as an HTML attribute. Do NOT add it to the hero/banner image (above the fold) — that image should load eagerly (either omit the attribute or set `loading="eager"`).
+
+---
+
+## TASK 5 — ADD RESPONSIVE IMAGES (srcset + WebP hints)
+
+**Files:** index.html, index-en.html
+**Problem:** All images are served at full resolution regardless of device. The largest images are 2–3 MB each.
+**Fix:** For each `<img>` that references a large image, add a `sizes` attribute and a `srcset` that references the same filename with a `-small` and `-medium` suffix, for example:
+
+```html
+<img
+  src="images/AboutUs.jpg"
+  srcset="images/AboutUs-small.jpg 480w, images/AboutUs-medium.jpg 960w, images/AboutUs.jpg 1920w"
+  sizes="(max-width: 480px) 480px, (max-width: 960px) 960px, 1920px"
+  alt="About Us"
+  loading="lazy"
+/>
+```
+
+Add this pattern to: AboutUs.jpg, 1.jpg, 2.jpg, 3.jpg, 4.jpg, 6.png, 8.jpg, 9.jpg.
+NOTE: This only adds the HTML markup. The actual resized images still need to be generated (see Task 14 below for the bash commands).
+
+---
+
+## TASK 6 — FIX MOBILE MENU: CLOSE ON OUTSIDE CLICK
+
+**File:** script.js
+**Problem:** Mobile navigation menu can only be closed by clicking the hamburger toggle. Clicking outside the menu does nothing.
+**Fix:** Add a document-level click listener that closes the menu when a click lands outside both the nav element and the toggle button:
+
+```js
+document.addEventListener('click', (e) => {
+  const navMenu = document.getElementById('nav-menu');
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navMenu && navToggle && navMenu.classList.contains('active')) {
+    if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+      navMenu.classList.remove('active');
+      navToggle.classList.remove('active');
+    }
+  }
+});
+```
+
+---
+
+## TASK 7 — ADD aria-expanded TO MOBILE MENU TOGGLE
+
+**Files:** index.html, index-en.html, script.js
+**Problem:** The hamburger button does not communicate its state to screen readers.
+**Fix:**
+1. Add `aria-expanded="false"` and `aria-controls="nav-menu"` to the `.nav-toggle` button in both HTML files.
+2. In the toggle click handler in script.js, update `aria-expanded`:
+```js
+const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+navToggle.setAttribute('aria-expanded', String(!expanded));
+```
+
+---
+
+## TASK 8 — FIX FORM ACCESSIBILITY
+
+**Files:** index.html, index-en.html
+**Problem:** The contact form is missing accessibility attributes.
+**Fix:**
+1. Add `aria-required="true"` to all required `<input>` and `<textarea>` elements.
+2. Add `autocomplete` attributes to inputs: `name` field → `autocomplete="name"`, `email` → `autocomplete="email"`, `phone` → `autocomplete="tel"`.
+3. Change the phone input `type` from `text` to `tel`.
+4. The first `<option>` in the `<select>` element (the placeholder option) should have `disabled selected` attributes so it cannot be re-selected after a choice is made.
+5. Add `aria-hidden="true"` to the language switcher divider span: `<span class="lang-divider" aria-hidden="true">|</span>`.
+
+---
+
+## TASK 9 — ADD SKIP-TO-CONTENT LINK
+
+**Files:** index.html, index-en.html, styles.css
+**Problem:** Keyboard users cannot skip the navigation.
+**Fix:**
+1. Add as the very first element inside `<body>` in both HTML files:
+```html
+<a href="#main-content" class="skip-link">Skip to main content</a>
+```
+2. Add `id="main-content"` to the `<main>` element (or the first section after the nav).
+3. Add CSS for the skip link (visually hidden but visible on focus):
+```css
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 4px 4px;
+  font-weight: 600;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+```
+
+---
+
+## TASK 10 — FIX SOCIAL ICON TOUCH TARGET SIZE
+
+**File:** styles.css
+**Problem:** Social media icon links in the footer are 40×40px, below the 44px minimum touch target recommended by WCAG 2.5.5 and Apple HIG.
+**Fix:** In the `.footer-social a` or `.social-icon` rule, change the minimum size to 44px:
+```css
+.footer-social a {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+}
+```
+
+---
+
+## TASK 11 — REPLACE SCROLL ANIMATION QUERIES WITH IntersectionObserver
+
+**File:** script.js
+**Problem:** The `animateOnScroll` function loops over all `.animate-on-scroll` elements and calls `getBoundingClientRect()` on each one every scroll tick. This is a known performance antipattern (forced layout/reflow).
+**Fix:** Replace the entire `animateOnScroll` function and its scroll listener with an `IntersectionObserver`:
+
+```js
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // stop watching once visible
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+```
+
+Remove the old `animateOnScroll()` function and its `scroll` event listener entirely.
+
+---
+
+## TASK 12 — FIX HERO IMAGE AS CSS BACKGROUND (BANNER)
+
+**File:** styles.css, index.html, index-en.html
+**Problem:** The hero background image (banner.jpg) is set via inline style or CSS without responsive sizing hints, and it loads eagerly for all devices without a smaller version on mobile.
+**Fix:**
+1. Ensure banner.jpg is referenced only in CSS (not as an inline style on the element).
+2. Use a CSS media query to serve a smaller version on mobile:
+```css
+.hero {
+  background-image: url('../images/banner.jpg');
+}
+@media (max-width: 768px) {
+  .hero {
+    background-image: url('../images/banner-mobile.jpg');
+  }
+}
+```
+NOTE: banner-mobile.jpg needs to be generated (see Task 14).
+
+---
+
+## TASK 13 — CONSOLIDATE DUPLICATE CSS RULES
+
+**File:** styles.css
+**Problem:** `.footer-social h3::after` and `.footer-column h3::after` share identical property declarations.
+**Fix:** Merge them into a single rule:
+```css
+.footer-social h3::after,
+.footer-column h3::after {
+  /* shared declarations */
+}
+```
+Scan for any other duplicate selectors with identical or near-identical properties and merge them.
+
+---
+
+## TASK 14 — PROVIDE IMAGE OPTIMIZATION BASH COMMANDS
+
+**Context:** The images/ directory contains unoptimized files totalling ~41 MB. This task does not change HTML/CSS/JS — it provides the shell commands to run once in the project root to generate optimized variants.
+Add these commands as comments at the bottom of nextsteps.txt (or as a separate shell script `optimize-images.sh`):
+
+```bash
+#!/usr/bin/env bash
+# Requires: imagemagick (brew install imagemagick) and cwebp (brew install webp)
+# Run from project root
+
+cd images
+
+for f in 1.jpg 2.jpg 3.jpg 4.jpg 6.png 8.jpg 9.jpg AboutUs.jpg; do
+  base="${f%.*}"
+  # Create medium (960w) and small (480w) variants
+  convert "$f" -resize 960x -quality 80 "${base}-medium.jpg"
+  convert "$f" -resize 480x -quality 75 "${base}-small.jpg"
+  # Create WebP versions (optional but recommended)
+  cwebp -q 80 "$f" -o "${base}.webp"
+done
+
+# Optimize banner for mobile
+convert banner.jpg -resize 768x -quality 80 banner-mobile.jpg
+
+echo "Done. Check image sizes:"
+du -sh *.jpg *.png *.webp 2>/dev/null | sort -h
+```
+
+---
+
+## TASK 15 — ADD MISSING FAVICON
+
+**Files:** index.html, index-en.html
+**Problem:** No favicon is specified; browsers make a 404 request for /favicon.ico.
+**Fix:** Add inside `<head>` of both files:
+```html
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<!-- If a PNG favicon exists: -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+```
+
+---
+
+## TASK 16 — ADD dns-prefetch FOR EXTERNAL RESOURCES
+
+**Files:** index.html, index-en.html
+**Problem:** No DNS prefetch hints for third-party origins (Font Awesome CDN, Google APIs).
+**Fix:** Add inside `<head>` before other resource hints:
+```html
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//maps.googleapis.com">
+```
+
+---
+
+## TASK 17 — RECONCILE CONTENT BETWEEN GREEK AND ENGLISH VERSIONS
+
+**Files:** index.html, index-en.html
+**Problem:** index-en.html contains a "Film & Production" service card that does not exist in index.html. The two versions are structurally out of sync.
+**Fix:** Decide which set of services is canonical and ensure both HTML files have the same number and order of service cards. If "Film & Production" was intentionally removed from the Greek version (see commit 0f0b376), remove it from index-en.html as well. Verify all section IDs, tab button data attributes, and product category counts match between the two files.
+
+---
+
+## TESTING CHECKLIST
+
+After applying all tasks, verify:
+- [ ] HTML validates with no errors (run through validator.w3.org)
+- [ ] Lighthouse Performance score >= 85 on mobile
+- [ ] Lighthouse Accessibility score >= 90
+- [ ] Mobile menu opens and closes correctly, including tap-outside-to-close
+- [ ] All images load with lazy loading (hero image loads eagerly)
+- [ ] No console errors on load
+- [ ] Tab navigation works through all interactive elements
+- [ ] Contact form phone field shows numeric keyboard on iOS/Android
+- [ ] Skip-to-content link appears on keyboard focus
+
+---
+
+## SUGGESTED COMMIT MESSAGE
+
+feat(perf/a11y/ux): fix critical HTML bug, optimize scroll handling, and improve mobile accessibility
+
+Fix a malformed closing tag in index.html that was breaking HTML parsing. Replace
+the rAF-unthrottled scroll listener and getBoundingClientRect loop with a single
+IntersectionObserver for animate-on-scroll elements, and consolidate all remaining
+scroll side-effects (navbar style, scroll-to-top button) into one rAF-gated handler.
+
+Add defer to the script tag so it no longer blocks HTML parsing. Remove the
+redundant JS lazy-load injection (native loading="lazy" attributes already exist in
+HTML). Add srcset/sizes to all large product and about-section images so browsers can
+pick appropriately sized variants (resize commands provided in optimize-images.sh).
+
+Mobile UX: close the nav menu on outside tap, increase social icon touch targets to
+44 px, fix hero background-image to load a mobile-sized variant via a CSS media query.
+
+Accessibility: add aria-expanded to the hamburger toggle, aria-required + autocomplete
+to form fields, a skip-to-content link, aria-hidden to decorative dividers, and
+disable the placeholder <option> in the service select. Merge duplicate footer
+::after CSS rules. Add dns-prefetch hints for all third-party origins and a favicon
+link tag.
+
+Content: reconcile service cards between Greek and English versions (remove orphaned
+"Film & Production" card from index-en.html, consistent with commit 0f0b376).
+
+Resolves: unthrottled scroll reflow, 41 MB of uncompressed images served to mobile,
+missing defer on blocking script, HTML parse error on line 139.
