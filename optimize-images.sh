@@ -23,9 +23,11 @@ done
 
 magick banner.jpg -auto-orient -strip -quality 78 -define webp:method=6 banner.webp
 magick banner.jpg -auto-orient -resize 768x -strip -quality 74 -define webp:method=6 banner-mobile.webp
+magick AboutUs.jpg -auto-orient -resize 720x -strip -quality 74 -define webp:method=6 AboutUs-720.webp
 
 cd "$ROOT_DIR"
 magick images/pslogo.png -auto-orient -resize 256x256 -background transparent -gravity center -extent 256x256 -strip -quality 90 -define webp:method=6 favicon.webp
+magick favicon.webp -resize 96x96 -strip -quality 82 -define webp:method=6 favicon-96.webp
 magick images/pslogo.png -auto-orient -resize 256x256 -background transparent -gravity center -extent 256x256 -define icon:auto-resize=64,48,32,16 favicon.ico
 
 echo "Done. Check image sizes:"

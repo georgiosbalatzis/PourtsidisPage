@@ -1,187 +1,225 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Navbar Toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('nav-menu');
     const navbar = document.getElementById('navbar');
-    const navLinksItems = document.querySelectorAll('.nav-link');
+    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
     const scrollToTopBtn = document.getElementById('scrollToTop');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const closeMobileNav = function() {
+    const setMenuState = function(isOpen) {
         if (!navMenu || !navToggle) return;
 
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.toggle('active', isOpen);
+        navToggle.classList.toggle('active', isOpen);
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+
+        const icon = navToggle.querySelector('i');
+        if (icon) {
+            icon.classList.toggle('fa-bars', !isOpen);
+            icon.classList.toggle('fa-xmark', isOpen);
+        }
     };
 
-    // Toggle mobile navigation
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
-            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-            const nextExpanded = !expanded;
-
-            navMenu.classList.toggle('active', nextExpanded);
-            navToggle.classList.toggle('active', nextExpanded);
-            navToggle.setAttribute('aria-expanded', String(nextExpanded));
+            setMenuState(navToggle.getAttribute('aria-expanded') !== 'true');
         });
 
-        document.addEventListener('click', function(e) {
-            if (navMenu.classList.contains('active')) {
-                if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-                    closeMobileNav();
-                }
+        document.addEventListener('click', function(event) {
+            const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+            if (isOpen && !navMenu.contains(event.target) && !navToggle.contains(event.target)) {
+                setMenuState(false);
             }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                setMenuState(false);
+                navToggle.focus();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 850) setMenuState(false);
         });
     }
 
-    // Close mobile menu when a navigation link is clicked
-    navLinksItems.forEach(link => {
+    navLinks.forEach(function(link) {
         link.addEventListener('click', function() {
-            closeMobileNav();
+            setMenuState(false);
         });
     });
 
     const updateScrollState = function() {
-        if (navbar) {
-            if (window.scrollY > 100) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
-        }
-
-        if (scrollToTopBtn) {
-            if (window.scrollY > 500) {
-                scrollToTopBtn.classList.add('active');
-            } else {
-                scrollToTopBtn.classList.remove('active');
-            }
-        }
+        const scrollY = window.scrollY;
+        if (navbar) navbar.classList.toggle('nav-scrolled', scrollY > 40);
+        if (scrollToTopBtn) scrollToTopBtn.classList.toggle('active', scrollY > 560);
     };
 
     let scrollTicking = false;
     updateScrollState();
 
     window.addEventListener('scroll', function() {
-        if (!scrollTicking) {
-            requestAnimationFrame(function() {
-                updateScrollState();
-                scrollTicking = false;
-            });
-            scrollTicking = true;
+        if (scrollTicking) return;
+
+        window.requestAnimationFrame(function() {
+            updateScrollState();
+            scrollTicking = false;
+        });
+        scrollTicking = true;
+    }, { passive: true });
+
+    const tabButtons = Array.from(document.querySelectorAll('.tab-btn'));
+    const productCategories = Array.from(document.querySelectorAll('.product-category'));
+
+    tabButtons.forEach(function(button, index) {
+        const category = button.dataset.category;
+        const panel = document.querySelector(`.product-category[data-category="${category}"]`);
+        const tabId = `product-tab-${index}`;
+        const panelId = `product-panel-${index}`;
+
+        button.id = tabId;
+        button.setAttribute('role', 'tab');
+        button.setAttribute('aria-selected', String(button.classList.contains('active')));
+        button.setAttribute('aria-controls', panelId);
+        button.setAttribute('tabindex', button.classList.contains('active') ? '0' : '-1');
+
+        if (panel) {
+            panel.id = panelId;
+            panel.setAttribute('role', 'tabpanel');
+            panel.setAttribute('aria-labelledby', tabId);
         }
-    });
 
-    // Product category tabs
-    const tabBtns = document.querySelectorAll('.tab-btn');
+        button.addEventListener('click', function() {
+            tabButtons.forEach(function(tab) {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+                tab.setAttribute('tabindex', '-1');
+            });
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all tabs
-            tabBtns.forEach(tab => tab.classList.remove('active'));
-            // Add active class to clicked tab
-            this.classList.add('active');
+            productCategories.forEach(function(item) {
+                item.classList.remove('active');
+            });
 
-            // Hide all product categories
-            const categories = document.querySelectorAll('.product-category');
-            categories.forEach(category => category.classList.remove('active'));
+            button.classList.add('active');
+            button.setAttribute('aria-selected', 'true');
+            button.setAttribute('tabindex', '0');
+            if (panel) panel.classList.add('active');
+        });
 
-            // Show selected category
-            const category = this.getAttribute('data-category');
-            document.querySelector(`.product-category[data-category="${category}"]`).classList.add('active');
+        button.addEventListener('keydown', function(event) {
+            if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+
+            event.preventDefault();
+            const direction = event.key === 'ArrowRight' ? 1 : -1;
+            const nextIndex = (index + direction + tabButtons.length) % tabButtons.length;
+            tabButtons[nextIndex].focus();
+            tabButtons[nextIndex].click();
         });
     });
 
-    // Contact Form Validation and Submission
+    const tabList = document.querySelector('.category-tabs');
+    if (tabList) tabList.setAttribute('role', 'tablist');
+
     const contactForm = document.getElementById('contactForm');
-
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
 
-            // Basic form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            if (!name || !email || !subject || !message) {
-                alert('Παρακαλώ συμπληρώστε όλα τα απαιτούμενα πεδία.');
-                return;
-            }
-
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email.');
-                return;
-            }
-
-            // If validation passes, you would typically send form data to a server
-            // For demo purposes, we'll just show a success message
-            alert('Ευχαριστούμε για το μήνυμά σας! Θα επικοινωνήσουμε μαζί σας σύντομα.');
-            contactForm.reset();
-        });
-    }
-
-    // Scroll to Top Button
-    if (scrollToTopBtn) {
-        scrollToTopBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            const isGreek = document.documentElement.lang === 'el';
+            const requiredFields = ['name', 'email', 'subject', 'message'];
+            const hasEmptyField = requiredFields.some(function(id) {
+                const field = document.getElementById(id);
+                return !field || !field.value.trim();
             });
+
+            if (hasEmptyField) {
+                window.alert(isGreek
+                    ? 'Παρακαλώ συμπληρώστε όλα τα απαιτούμενα πεδία.'
+                    : 'Please complete all required fields.');
+                return;
+            }
+
+            const email = document.getElementById('email').value.trim();
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                window.alert(isGreek
+                    ? 'Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email.'
+                    : 'Please enter a valid email address.');
+                return;
+            }
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const subject = document.getElementById('subject');
+            const message = document.getElementById('message').value.trim();
+            const subjectText = subject.options[subject.selectedIndex].text;
+            const emailBody = [
+                `${isGreek ? 'Όνομα' : 'Name'}: ${name}`,
+                `${isGreek ? 'Email' : 'Email'}: ${email}`,
+                `${isGreek ? 'Τηλέφωνο' : 'Phone'}: ${phone || '-'}`,
+                '',
+                message
+            ].join('\n');
+
+            window.location.href = `mailto:dimitrispourtsidis@yahoo.gr?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(emailBody)}`;
         });
     }
 
-    // Smooth scrolling for all anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            // Skip if it's not an anchor link
-            if (this.getAttribute('href') === '#') return;
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(event) {
+            const targetId = anchor.getAttribute('href');
+            if (!targetId || targetId === '#') return;
 
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const target = document.querySelector(targetId);
+            if (!target) return;
 
-            if (targetElement) {
-                const navHeight = document.querySelector('nav').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-
-                window.scrollTo({
-                    top: targetPosition - navHeight,
-                    behavior: 'smooth'
-                });
-            }
+            event.preventDefault();
+            target.scrollIntoView({
+                behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                block: 'start'
+            });
         });
     });
 
-    // Add animations to elements when they come into view
-    const animatedElements = document.querySelectorAll('.service-card, .product-content, .why-us-card');
-    animatedElements.forEach(element => element.classList.add('animate-on-scroll'));
+    const animatedElements = document.querySelectorAll('.service-card, .product-content, .why-us-card, .about-content');
+    animatedElements.forEach(function(element) {
+        element.classList.add('animate-on-scroll');
+    });
 
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
+    if ('IntersectionObserver' in window && !prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.12 });
 
-        animatedElements.forEach(element => observer.observe(element));
+        animatedElements.forEach(function(element) {
+            revealObserver.observe(element);
+        });
     } else {
-        animatedElements.forEach(element => {
+        animatedElements.forEach(function(element) {
             element.classList.add('visible');
         });
     }
 
-    // Initialize product grid
-    // Show the first category by default
-    const initialCategory = document.querySelector('.product-category[data-category="residential"]');
-    if (initialCategory) {
-        initialCategory.classList.add('active');
+    const observedSections = navLinks
+        .map(function(link) { return document.querySelector(link.getAttribute('href')); })
+        .filter(Boolean);
+
+    if ('IntersectionObserver' in window) {
+        const navigationObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (!entry.isIntersecting) return;
+                navLinks.forEach(function(link) {
+                    link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`);
+                });
+            });
+        }, { rootMargin: '-35% 0px -55% 0px' });
+
+        observedSections.forEach(function(section) {
+            navigationObserver.observe(section);
+        });
     }
 });
