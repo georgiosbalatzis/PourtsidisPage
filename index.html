@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pourtsidis Generators - Πώληση &amp; Ενοικίαση Γεννητριών</title>
     <meta name="description" content="Πωλήσεις, ενοικιάσεις και τεχνική υποστήριξη γεννητριών, κινητήρων και ανταλλακτικών σε όλη την Ελλάδα από το 1991.">
-    <meta name="theme-color" content="#0b0d0f">
+    <meta name="theme-color" content="#0e1c2f">
     <link rel="alternate" hreflang="el" href="index.html">
     <link rel="alternate" hreflang="en" href="index-en.html">
     <link rel="dns-prefetch" href="//maps.googleapis.com">
-    <link rel="preload" href="fonts/sofia-sans-condensed-greek.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/sofia-sans-condensed-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="images/banner-mobile.webp" as="image" type="image/webp" media="(max-width: 900px)" fetchpriority="high">
-    <link rel="preload" as="image" type="image/webp" imagesrcset="images/6-small.webp 480w, images/6-medium.webp 960w, images/6.webp 1024w" imagesizes="(max-width: 1100px) 54vw, 50vw" media="(min-width: 901px)" fetchpriority="high">
+    <link rel="preload" href="fonts/roboto-slab-greek.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/roboto-slab-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" type="image/webp" imagesrcset="images/9-small.webp 480w, images/9-medium.webp 960w, images/9.webp 1920w" imagesizes="100vw" fetchpriority="high">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/webp" href="favicon.webp">
     <link rel="stylesheet" href="styles.css">
@@ -20,9 +19,13 @@
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 5.5l6.5 6.5-6.5 6.5"/></symbol>
-    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 21V4M5.5 10.5 12 4l6.5 6.5"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13.5 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 20V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l1.8 4.3-2.3 1.4a11 11 0 0 0 5.3 5.3l1.4-2.3L19 14.5V18a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.5 6 8.5 7 8.5-7"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
 </svg>
 
 <a href="#main-content" class="skip-link">Μετάβαση στο κύριο περιεχόμενο</a>
@@ -37,32 +40,30 @@
 
         <nav class="nav" id="site-menu" aria-label="Κύρια πλοήγηση">
             <ul class="nav__list">
-                <li><a href="#about" class="nav__link"><span class="nav__num" aria-hidden="true">01</span>Εταιρεία</a></li>
-                <li><a href="#products" class="nav__link"><span class="nav__num" aria-hidden="true">02</span>Προϊόντα</a></li>
-                <li><a href="#services" class="nav__link"><span class="nav__num" aria-hidden="true">03</span>Ενοικιάσεις</a></li>
-                <li><a href="#why-us" class="nav__link"><span class="nav__num" aria-hidden="true">04</span>Υποστήριξη</a></li>
-                <li class="nav__item--mobile"><a href="#contact" class="nav__link"><span class="nav__num" aria-hidden="true">05</span>Επικοινωνία</a></li>
+                <li><a href="#about" class="nav__link"><span class="nav__num" aria-hidden="true"></span>Εταιρεία</a></li>
+                <li><a href="#products" class="nav__link"><span class="nav__num" aria-hidden="true"></span>Προϊόντα</a></li>
+                <li><a href="#services" class="nav__link"><span class="nav__num" aria-hidden="true"></span>Ενοικιάσεις</a></li>
+                <li><a href="#why-us" class="nav__link"><span class="nav__num" aria-hidden="true"></span>Υποστήριξη</a></li>
+                <li class="nav__item--mobile"><a href="#contact" class="nav__link"><span class="nav__num" aria-hidden="true"></span>Επικοινωνία</a></li>
             </ul>
             <div class="nav__mobile-extra">
-                <a href="#contact" class="btn btn--primary" data-close-menu>Ζητήστε προσφορά <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a href="#contact" class="btn btn--red">Ζητήστε προσφορά <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                 <div class="nav__mobile-row">
                     <div class="lang" aria-label="Γλώσσα">
-                        <a href="index.html" lang="el" aria-current="page">GR</a>
-                        <span class="lang__sep" aria-hidden="true"></span>
-                        <a href="index-en.html" lang="en" hreflang="en">EN</a>
+                        <a href="index.html" lang="el" aria-current="page"><span>GR</span></a>
+                        <a href="index-en.html" lang="en" hreflang="en"><span>EN</span></a>
                     </div>
-                    <a class="mono" href="tel:+302351600824">+30 2351 600824</a>
+                    <a href="tel:+302351600824">+30 2351 600824</a>
                 </div>
             </div>
         </nav>
 
         <div class="header__actions">
             <div class="lang" aria-label="Γλώσσα">
-                <a href="index.html" lang="el" aria-current="page">GR</a>
-                <span class="lang__sep" aria-hidden="true"></span>
-                <a href="index-en.html" lang="en" hreflang="en">EN</a>
+                <a href="index.html" lang="el" aria-current="page"><span>GR</span></a>
+                <a href="index-en.html" lang="en" hreflang="en"><span>EN</span></a>
             </div>
-            <a href="#contact" class="btn btn--primary btn--sm header__cta">Ζητήστε προσφορά <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="#contact" class="btn btn--red btn--sm header__cta">Ζητήστε προσφορά <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <button class="nav-toggle" id="navToggle" type="button" aria-label="Άνοιγμα μενού" aria-controls="site-menu" aria-expanded="false" data-label-open="Άνοιγμα μενού" data-label-close="Κλείσιμο μενού">
                 <span class="nav-toggle__bar"></span>
                 <span class="nav-toggle__bar"></span>
@@ -70,455 +71,428 @@
             </button>
         </div>
     </div>
-    <span class="site-header__progress" aria-hidden="true"></span>
 </header>
 
 <main id="main-content">
 
 <!-- Hero -->
 <section id="home" class="hero" aria-labelledby="hero-title">
-    <div class="shell hero__grid">
-        <div class="hero__content">
-            <p class="hero__kicker label"><span class="label__index">Pourtsidis</span><span class="label__rule" aria-hidden="true"></span>Από το 1991</p>
-            <h1 class="hero__title" id="hero-title">
-                <span class="hero__line"><span>Αξιόπιστη</span></span>
-                <span class="hero__line"><span>ισχύς.</span></span>
-                <span class="hero__line hero__line--accent"><span>Κάθε στιγμή.</span></span>
-            </h1>
-            <p class="hero__lead">Πωλήσεις, ενοικιάσεις και τεχνική υποστήριξη γεννητριών για επιχειρήσεις, εργοτάξια και εκδηλώσεις σε όλη την Ελλάδα.</p>
-            <div class="hero__actions">
-                <a href="#products" class="btn btn--primary">Βρείτε τη λύση σας <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-                <a href="#contact" class="btn btn--ghost">Ζητήστε προσφορά</a>
-            </div>
-            <p class="hero__meta mono" aria-label="Βασικά στοιχεία εταιρείας">
-                <span>5—1500 <span class="unit">kW</span></span>
-                <span>24/7 υποστήριξη</span>
-                <span>Πανελλαδικά</span>
-            </p>
+    <div class="hero__media">
+        <img src="images/9-medium.webp"
+             srcset="images/9-small.webp 480w, images/9-medium.webp 960w, images/9.webp 1920w"
+             sizes="100vw"
+             width="4032" height="3024"
+             alt="Κινητήρας V και γεννήτρια με το σήμα της εταιρείας στην αποθήκη της Pourtsidis Generators"
+             fetchpriority="high" decoding="async">
+    </div>
+
+    <div class="ats rivets" aria-hidden="true">
+        <p class="ats__title"><span>Αυτόματη μεταγωγή</span><span class="ats__screen">ATS</span></p>
+        <div class="ats__rows">
+            <p class="ats__row"><span class="led led--mains"></span><b>Δίκτυο</b><span class="ats__state">Διακοπή</span></p>
+            <p class="ats__row"><span class="led led--gen"></span><b>Γεννήτρια</b><span class="ats__state">Σε λειτουργία</span></p>
+            <p class="ats__row"><span class="led led--load"></span><b>Φορτίο</b><span class="ats__state">Τροφοδοτείται</span></p>
         </div>
     </div>
-    <div class="hero__media">
-        <picture>
-            <source media="(max-width: 900px)" srcset="images/banner-mobile.webp" width="768" height="576">
-            <img src="images/6-medium.webp"
-                 srcset="images/6-small.webp 480w, images/6-medium.webp 960w, images/6.webp 1024w"
-                 sizes="(max-width: 1100px) 54vw, 50vw"
-                 width="960" height="1440"
-                 alt="Κλειστού τύπου γεννήτρια ντίζελ μπροστά στις εγκαταστάσεις της Pourtsidis Generators"
-                 fetchpriority="high" decoding="async">
-        </picture>
-        <p class="hero__spec" aria-hidden="true"><span>Power systems</span><strong>5—1500 <span class="unit">kW</span></strong><span>Est. 1991</span></p>
+
+    <div class="shell hero__inner">
+        <div class="hero__plate rivets">
+            <p class="tag">Ενεργειακές λύσεις από το 1991</p>
+            <h1 class="hero__title" id="hero-title"><span>Αξιόπιστη ισχύς.</span> <span>Κάθε στιγμή.</span></h1>
+            <p class="hero__lead">Πωλήσεις, ενοικιάσεις και τεχνική υποστήριξη γεννητριών για επιχειρήσεις, εργοτάξια και εκδηλώσεις σε όλη την Ελλάδα.</p>
+            <div class="hero__actions">
+                <a href="#products" class="btn btn--red">Βρείτε τη λύση σας <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a href="#contact" class="btn btn--line-light">Ζητήστε προσφορά</a>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Metrics -->
-<section class="metrics section--light" aria-label="Η εταιρεία σε αριθμούς">
-    <div class="shell">
-        <div class="metrics__head">
-            <p class="mono" data-reveal>Η εταιρεία σε αριθμούς</p>
-            <p class="mono" data-reveal>Κίτρος · Ελλάδα</p>
+<!-- Company + data plate -->
+<section id="about" class="section company" aria-labelledby="about-title">
+    <div class="shell grid-12">
+        <div class="company__text">
+            <p class="tag" data-reveal>Η εταιρεία</p>
+            <h2 class="heading" id="about-title" data-reveal>Ο αξιόπιστος συνεργάτης σας <em>στην Ελλάδα</em>.</h2>
+            <div data-reveal>
+                <p class="lead">Από το 1991, η Π. Πουρτσίδης – Μ. Σταυρίδης Ο.Ε. παρέχει λύσεις γεννητριών υψηλής ποιότητας σε επιχειρήσεις, εργοτάξια, εργοστάσια, εκδηλώσεις και ιδιοκτήτες σπιτιών σε όλη την Ελλάδα.</p>
+                <p>Στον χώρο μας θα βρείτε τη μεγαλύτερη γκάμα γεννητριών, κινητήρων (θαλάσσης) ακόμη και ανταλλακτικών.</p>
+            </div>
+            <figure class="photo company__photo" data-reveal="photo">
+                <img src="images/AboutUs1.webp" width="1024" height="768"
+                     alt="Το εσωτερικό της αποθήκης με κινητήρες, γεννήτριες και ανταλλακτικά"
+                     loading="lazy" decoding="async">
+                <figcaption>Η αποθήκη μας στον Κίτρο</figcaption>
+            </figure>
         </div>
-        <ul class="metrics__list">
-            <li class="metric" data-reveal>
-                <span class="metric__index mono" aria-hidden="true">01</span>
-                <span class="metric__value"><span data-count="34">34</span><small>+</small></span>
-                <span class="metric__label">Χρόνια<br>εμπειρίας</span>
-            </li>
-            <li class="metric" data-reveal>
-                <span class="metric__index mono" aria-hidden="true">02</span>
-                <span class="metric__value">24/7</span>
-                <span class="metric__label">Τεχνική<br>υποστήριξη</span>
-            </li>
-            <li class="metric" data-reveal>
-                <span class="metric__index mono" aria-hidden="true">03</span>
-                <span class="metric__value metric__value--range">5<span class="metric__dash">—</span><span data-count="1500">1500</span><small>kW</small></span>
-                <span class="metric__label">Διαθέσιμη<br>ισχύς</span>
-            </li>
-            <li class="metric" data-reveal>
-                <span class="metric__index mono" aria-hidden="true">04</span>
-                <span class="metric__value">1991</span>
-                <span class="metric__label">Έτος<br>ίδρυσης</span>
-            </li>
-        </ul>
+
+        <div class="company__plate" data-reveal>
+            <div class="dataplate rivets">
+                <div class="dataplate__head">
+                    <h3>Pourtsidis Generators</h3>
+                    <span>Πινακίδα στοιχείων</span>
+                </div>
+                <dl class="dataplate__big">
+                    <div><dt>Ίδρυση</dt><dd>1991</dd></div>
+                    <div><dt>Εμπειρία</dt><dd><span data-count="34">34</span>+<span class="unit">χρόνια</span></dd></div>
+                    <div><dt>Εύρος ισχύος</dt><dd>5–<span data-count="1500">1500</span><span class="unit">kW</span></dd></div>
+                    <div><dt>Τεχνική υποστήριξη</dt><dd>24/7</dd></div>
+                </dl>
+                <dl class="dataplate__rows">
+                    <div><dt>Επωνυμία</dt><dd>Π. Πουρτσίδης – Μ. Σταυρίδης Ο.Ε.</dd></div>
+                    <div><dt>Δραστηριότητα</dt><dd>Πωλήσεις · Ενοικιάσεις · Τεχνική υποστήριξη</dd></div>
+                    <div><dt>Εξοπλισμός</dt><dd>Γεννήτριες · Κινητήρες · Ανταλλακτικά</dd></div>
+                    <div><dt>Κάλυψη</dt><dd>Πανελλαδική παράδοση</dd></div>
+                    <div><dt>Έδρα</dt><dd>13ο χλμ. Π.Ε.Ο. Κατερίνης–Θεσ/νίκης, Κίτρος 60064</dd></div>
+                </dl>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Products -->
-<section id="products" class="section section--dark products" aria-labelledby="products-title">
+<section id="products" class="section section--navy products" aria-labelledby="products-title">
     <div class="shell">
-        <div class="grid-12 section-head">
-            <p class="section-head__label label" data-reveal><span class="label__index">01</span><span class="label__rule" aria-hidden="true"></span>Εξοπλισμός</p>
-            <h2 class="section-head__title display display--h2" id="products-title" data-reveal>Λύσεις<br><span class="accent">ισχύος.</span></h2>
-            <p class="section-head__aside" data-reveal>Περιηγηθείτε στην εκτεταμένη συλλογή μας με γεννήτριες υψηλής ποιότητας, κινητήρες και ανταλλακτικά.</p>
-        </div>
-
-        <div data-reveal>
-            <div class="products__tabs" role="tablist" aria-label="Κατηγορίες προϊόντων">
-                <button class="tab" type="button" role="tab" id="tab-generators" aria-controls="panel-generators" aria-selected="true" tabindex="0">
-                    <span class="tab__num">01</span><span class="tab__name">Γεννήτριες</span>
-                </button>
-                <button class="tab" type="button" role="tab" id="tab-engines" aria-controls="panel-engines" aria-selected="false" tabindex="-1">
-                    <span class="tab__num">02</span><span class="tab__name">Κινητήρες</span>
-                </button>
-                <button class="tab" type="button" role="tab" id="tab-parts" aria-controls="panel-parts" aria-selected="false" tabindex="-1">
-                    <span class="tab__num">03</span><span class="tab__name">Ανταλλακτικά</span>
-                </button>
+        <div class="grid-12 head">
+            <div class="head__main">
+                <p class="tag" data-reveal>Εξοπλισμός</p>
+                <h2 class="heading" id="products-title" data-reveal>Λύσεις <em>ισχύος</em>.</h2>
             </div>
-
-            <div class="products__stage">
-                <!-- Generators -->
-                <article class="product is-active" role="tabpanel" id="panel-generators" aria-labelledby="tab-generators">
-                    <div class="product__media">
-                        <img src="images/1-medium.webp"
-                             srcset="images/1-small.webp 480w, images/1-medium.webp 960w, images/1.webp 1920w"
-                             sizes="(max-width: 900px) 100vw, 58vw"
-                             width="3767" height="2825"
-                             alt="Γεννήτρια ντίζελ σε μεταλλικό πλαίσιο στο συνεργείο της εταιρείας"
-                             loading="lazy" decoding="async">
-                        <p class="product__tag mono" aria-hidden="true"><b>01</b> — Γεννήτριες / 5—1500 <span class="unit">kW</span></p>
-                    </div>
-                    <div class="product__body">
-                        <div class="product__text">
-                            <h3 class="product__title">Γεννήτριες</h3>
-                            <p class="product__spec">5—1500 <small>kW</small></p>
-                            <p>Ιδανικές για επιχειρήσεις, εργοστάσια, εργοτάξια και εκδηλώσεις, παρέχοντας την απαραίτητη ενέργεια κατά τη διάρκεια διακοπών ρεύματος. Οι γεννήτριές μας εξασφαλίζουν ότι ο χώρος σας θα έχει ρεύμα όταν το χρειάζεστε περισσότερο.</p>
-                            <p>Με αυτόματους διακόπτες μεταφοράς και αξιόπιστη απόδοση ισχύος, δεν θα χρειαστεί να ανησυχείτε ξανά για διακοπές ρεύματος.</p>
-                        </div>
-                        <ul class="specs">
-                            <li><span aria-hidden="true">A.</span><span>Ισχύς από 5 kW έως 1500 kW</span></li>
-                            <li><span aria-hidden="true">B.</span><span>Λειτουργία χαμηλού θορύβου</span></li>
-                            <li><span aria-hidden="true">C.</span><span>Αυτόματοι διακόπτες μεταφοράς</span></li>
-                        </ul>
-                        <div><a href="#contact" class="text-link" data-subject="Sales Inquiry">Ζητήστε πληροφορίες <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-                    </div>
-                </article>
-
-                <!-- Engines -->
-                <article class="product" role="tabpanel" id="panel-engines" aria-labelledby="tab-engines">
-                    <div class="product__media">
-                        <img src="images/9-medium.webp"
-                             srcset="images/9-small.webp 480w, images/9-medium.webp 960w, images/9.webp 1920w"
-                             sizes="(max-width: 900px) 100vw, 58vw"
-                             width="4032" height="3024"
-                             alt="Μεγάλος κινητήρας V και γεννήτρια στον χώρο της εταιρείας"
-                             loading="lazy" decoding="async">
-                        <p class="product__tag mono" aria-hidden="true"><b>02</b> — Κινητήρες / Βιομηχανία · Θάλασσα</p>
-                    </div>
-                    <div class="product__body">
-                        <div class="product__text">
-                            <h3 class="product__title">Κινητήρες</h3>
-                            <p class="product__spec product__spec--text">Βιομηχανία / Γεωργία / Θάλασσα</p>
-                            <p>Στον χώρο μας προσφέρουμε κινητήρες για βιομηχανικές εγκαταστάσεις, γεωργικά μηχανήματα ή θαλάσσιες εφαρμογές. Επιλέξτε από την ποικιλία μας για να βεβαιωθείτε ότι καλύπτετε όλες τις ανάγκες σας με την κατάλληλη λύση.</p>
-                            <p>Προσφέρουμε εξατομικευμένες λύσεις και τεχνική υποστήριξη για να σας βοηθήσουμε να επιλέξετε τον κατάλληλο κινητήρα για τις συγκεκριμένες ανάγκες σας.</p>
-                        </div>
-                        <ul class="specs">
-                            <li><span aria-hidden="true">A.</span><span>Αξιόπιστη απόδοση</span></li>
-                            <li><span aria-hidden="true">B.</span><span>Υψηλή αποτελεσματικότητα</span></li>
-                            <li><span aria-hidden="true">C.</span><span>Μακροπρόθεσμη αξιοπιστία</span></li>
-                        </ul>
-                        <div><a href="#contact" class="text-link" data-subject="Sales Inquiry">Ζητήστε πληροφορίες <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-                    </div>
-                </article>
-
-                <!-- Spare parts -->
-                <article class="product" role="tabpanel" id="panel-parts" aria-labelledby="tab-parts">
-                    <div class="product__media">
-                        <img src="images/3-medium.webp"
-                             srcset="images/3-small.webp 480w, images/3-medium.webp 960w, images/3.webp 1920w"
-                             sizes="(max-width: 900px) 100vw, 58vw"
-                             width="4032" height="3024"
-                             alt="Λεπτομέρεια κινητήρα γεννήτριας με σωληνώσεις και εξαρτήματα"
-                             loading="lazy" decoding="async">
-                        <p class="product__tag mono" aria-hidden="true"><b>03</b> — Ανταλλακτικά / Service</p>
-                    </div>
-                    <div class="product__body">
-                        <div class="product__text">
-                            <h3 class="product__title">Ανταλλακτικά</h3>
-                            <p class="product__spec product__spec--text">Πρόληψη / Συντήρηση / Αντικατάσταση</p>
-                            <p>Προσφέρουμε εκτεταμένη υποστήριξη ανταλλακτικών για όλες τις γεννήτριες και τους κινητήρες μας, διασφαλίζοντας τη συνεχή και αποτελεσματική λειτουργία των συστημάτων σας.</p>
-                            <p>Με ευρύ φάσμα διαθέσιμων ανταλλακτικών και εξειδικευμένες υπηρεσίες συντήρησης, καλύπτουμε κάθε ανάγκη σας, από την πρόληψη βλαβών έως την άμεση αντικατάσταση φθαρμένων εξαρτημάτων.</p>
-                        </div>
-                        <ul class="specs">
-                            <li><span aria-hidden="true">A.</span><span>Ανταλλακτικά για γεννήτριες και κινητήρες</span></li>
-                            <li><span aria-hidden="true">B.</span><span>Εξειδικευμένες υπηρεσίες συντήρησης</span></li>
-                            <li><span aria-hidden="true">C.</span><span>Γρήγορη και αξιόπιστη υποστήριξη</span></li>
-                        </ul>
-                        <div><a href="#contact" class="text-link" data-subject="Technical Support">Ζητήστε πληροφορίες <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-                    </div>
-                </article>
+            <div class="head__aside" data-reveal>
+                <p>Περιηγηθείτε στην εκτεταμένη συλλογή μας με γεννήτριες υψηλής ποιότητας, κινητήρες και ανταλλακτικά.</p>
+                <p class="head__links">
+                    <span>Διαθέσιμος εξοπλισμός:</span>
+                    <a class="link-arrow" href="https://www.mascus.gr/p-pourtsidis-m-stavridis-o-e/b9107036,1,relevance,searchdealer.html" target="_blank" rel="noopener noreferrer">Mascus<span class="visually-hidden"> (ανοίγει σε νέα καρτέλα)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                    <a class="link-arrow" href="https://pourtsidis.car.gr/builders/" target="_blank" rel="noopener noreferrer">Car.gr<span class="visually-hidden"> (ανοίγει σε νέα καρτέλα)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                </p>
             </div>
         </div>
 
-        <div class="products__foot mono">
-            <span class="products__counter" aria-hidden="true"><b data-product-index>01</b> / 03</span>
-            <span>Διαθέσιμος εξοπλισμός:
-                <a class="text-link" href="https://www.mascus.gr/p-pourtsidis-m-stavridis-o-e/b9107036,1,relevance,searchdealer.html" target="_blank" rel="noopener noreferrer">Mascus<span class="visually-hidden"> (ανοίγει σε νέα καρτέλα)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-                <a class="text-link" href="https://pourtsidis.car.gr/builders/" target="_blank" rel="noopener noreferrer">Car.gr<span class="visually-hidden"> (ανοίγει σε νέα καρτέλα)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-            </span>
-        </div>
-    </div>
-</section>
-
-<!-- Company story -->
-<section id="about" class="section section--light story" aria-labelledby="about-title">
-    <div class="shell">
-        <div class="grid-12 story__head">
-            <p class="story__label label" data-reveal><span class="label__index">02</span><span class="label__rule" aria-hidden="true"></span>Από το 1991</p>
-            <h2 class="story__title display display--h2" id="about-title" data-reveal><span class="outline">34+</span> χρόνια ισχύος<br>&amp; τεχνογνωσίας.</h2>
-        </div>
-
-        <div class="grid-12 story__body">
-            <div class="story__media">
-                <div class="frame" data-reveal="media">
-                    <img src="images/AboutUs-medium.webp"
-                         srcset="images/AboutUs-small.webp 480w, images/AboutUs-720.webp 720w, images/AboutUs-medium.webp 960w, images/AboutUs.webp 1920w"
-                         sizes="(max-width: 900px) 100vw, 60vw"
-                         width="4032" height="3024"
-                         alt="Γερανοφόρο όχημα της εταιρείας εκφορτώνει εξοπλισμό μπροστά στις εγκαταστάσεις"
+        <div class="machines" data-reveal>
+            <!-- Generators -->
+            <article class="machine is-open">
+                <div class="machine__media">
+                    <img src="images/6-medium.webp"
+                         srcset="images/6-small.webp 480w, images/6-medium.webp 960w, images/6.webp 1024w"
+                         sizes="(max-width: 1100px) 50vw, 60vw"
+                         width="960" height="1440"
+                         alt="Κλειστού τύπου γεννήτρια ντίζελ μπροστά στις εγκαταστάσεις"
                          loading="lazy" decoding="async">
                 </div>
-                <div class="story__inset">
-                    <div class="frame" data-reveal="media" style="--i: 2">
-                        <img src="images/8-small.webp"
-                             srcset="images/8-small.webp 480w, images/8-medium.webp 960w"
-                             sizes="(max-width: 900px) 38vw, 24vw"
-                             width="4032" height="3024"
-                             alt="Πίνακας ελέγχου γεννήτριας με το σήμα Πουρτσίδης - Σταυρίδης"
-                             loading="lazy" decoding="async">
-                    </div>
+                <h3 class="machine__head">
+                    <button class="machine__btn" type="button" id="machine-btn-1" aria-expanded="true" aria-controls="machine-body-1">
+                        <span class="machine__num">01</span><span class="machine__name">Γεννήτριες</span><span class="machine__plus" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="machine__body" id="machine-body-1" role="region" aria-labelledby="machine-btn-1">
+                    <p class="machine__spec">5–1500 kW</p>
+                    <p>Ιδανικές για επιχειρήσεις, εργοστάσια, εργοτάξια και εκδηλώσεις, παρέχοντας την απαραίτητη ενέργεια κατά τη διάρκεια διακοπών ρεύματος. Οι γεννήτριές μας εξασφαλίζουν ότι ο χώρος σας θα έχει ρεύμα όταν το χρειάζεστε περισσότερο.</p>
+                    <p>Με αυτόματους διακόπτες μεταφοράς και αξιόπιστη απόδοση ισχύος, δεν θα χρειαστεί να ανησυχείτε ξανά για διακοπές ρεύματος.</p>
+                    <ul class="checks">
+                        <li>Ισχύς από 5 kW έως 1500 kW</li>
+                        <li>Λειτουργία χαμηλού θορύβου</li>
+                        <li>Αυτόματοι διακόπτες μεταφοράς</li>
+                    </ul>
+                    <a href="#contact" class="link-arrow" data-subject="Sales Inquiry">Ζητήστε πληροφορίες <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                 </div>
-            </div>
+            </article>
 
-            <div class="story__text" data-reveal>
-                <h3>Ο αξιόπιστος συνεργάτης σας στην Ελλάδα</h3>
-                <p>Από το 1991, η Π. Πουρτσίδης – Μ. Σταυρίδης Ο.Ε. παρέχει λύσεις γεννητριών υψηλής ποιότητας σε επιχειρήσεις, εργοτάξια, εργοστάσια, εκδηλώσεις και ιδιοκτήτες σπιτιών σε όλη την Ελλάδα.</p>
-                <p>Στον χώρο μας θα βρείτε τη μεγαλύτερη γκάμα γεννητριών, κινητήρων (θαλάσσης) ακόμη και ανταλλακτικών.</p>
-                <p class="story__company mono">Π. Πουρτσίδης – Μ. Σταυρίδης Ο.Ε.<br>13ο χλμ. Π.Ε.Ο. Κατερίνης–Θεσ/νίκης</p>
-            </div>
+            <!-- Engines -->
+            <article class="machine">
+                <div class="machine__media">
+                    <img src="images/2-medium.webp"
+                         srcset="images/2-small.webp 480w, images/2-medium.webp 960w, images/2.webp 3024w"
+                         sizes="(max-width: 1100px) 50vw, 60vw"
+                         width="960" height="1280"
+                         alt="Γεννήτρια με κινητήρα V σε ανοιχτό πλαίσιο στο συνεργείο"
+                         loading="lazy" decoding="async">
+                </div>
+                <h3 class="machine__head">
+                    <button class="machine__btn" type="button" id="machine-btn-2" aria-expanded="false" aria-controls="machine-body-2">
+                        <span class="machine__num">02</span><span class="machine__name">Κινητήρες</span><span class="machine__plus" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="machine__body" id="machine-body-2" role="region" aria-labelledby="machine-btn-2">
+                    <p class="machine__spec machine__spec--text">Βιομηχανία · Γεωργία · Θάλασσα</p>
+                    <p>Στον χώρο μας προσφέρουμε κινητήρες για βιομηχανικές εγκαταστάσεις, γεωργικά μηχανήματα ή θαλάσσιες εφαρμογές. Επιλέξτε από την ποικιλία μας για να καλύψετε τις ανάγκες σας με την κατάλληλη λύση.</p>
+                    <p>Προσφέρουμε εξατομικευμένες λύσεις και τεχνική υποστήριξη για να σας βοηθήσουμε να επιλέξετε τον κατάλληλο κινητήρα.</p>
+                    <ul class="checks">
+                        <li>Αξιόπιστη απόδοση</li>
+                        <li>Υψηλή αποτελεσματικότητα</li>
+                        <li>Μακροπρόθεσμη αξιοπιστία</li>
+                    </ul>
+                    <a href="#contact" class="link-arrow" data-subject="Sales Inquiry">Ζητήστε πληροφορίες <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+            </article>
 
-            <div class="timeline" aria-label="Χρονολόγιο εταιρείας">
-                <div class="timeline__bar" data-reveal>
-                    <span class="timeline__year">1991</span>
-                    <span class="timeline__mid mono">34+ χρόνια στην ελληνική αγορά</span>
-                    <span class="timeline__year timeline__year--now">2026</span>
+            <!-- Spare parts -->
+            <article class="machine">
+                <div class="machine__media">
+                    <img src="images/7.webp" width="1200" height="1600"
+                         alt="Γεννήτρια στο συνεργείο με ράφια κινητήρων και ανταλλακτικών στο βάθος"
+                         loading="lazy" decoding="async">
                 </div>
-                <div class="timeline__track" data-reveal="line" aria-hidden="true"><div class="ruler"></div></div>
-                <div class="timeline__facts">
-                    <div data-reveal><strong>1991</strong><span>Ίδρυση της εταιρείας</span></div>
-                    <div data-reveal><strong>34+</strong><span>Χρόνια εμπειρίας</span></div>
-                    <div data-reveal><strong>24/7</strong><span>Τεχνική υποστήριξη</span></div>
+                <h3 class="machine__head">
+                    <button class="machine__btn" type="button" id="machine-btn-3" aria-expanded="false" aria-controls="machine-body-3">
+                        <span class="machine__num">03</span><span class="machine__name">Ανταλλακτικά</span><span class="machine__plus" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="machine__body" id="machine-body-3" role="region" aria-labelledby="machine-btn-3">
+                    <p class="machine__spec machine__spec--text">Πρόληψη · Συντήρηση · Αντικατάσταση</p>
+                    <p>Προσφέρουμε εκτεταμένη υποστήριξη ανταλλακτικών για όλες τις γεννήτριες και τους κινητήρες μας, διασφαλίζοντας τη συνεχή και αποτελεσματική λειτουργία των συστημάτων σας.</p>
+                    <p>Από την πρόληψη βλαβών έως την άμεση αντικατάσταση φθαρμένων εξαρτημάτων, οι ειδικοί μας παρέχουν γρήγορη και αξιόπιστη υποστήριξη.</p>
+                    <ul class="checks">
+                        <li>Ανταλλακτικά για γεννήτριες και κινητήρες</li>
+                        <li>Εξειδικευμένες υπηρεσίες συντήρησης</li>
+                        <li>Γρήγορη και αξιόπιστη υποστήριξη</li>
+                    </ul>
+                    <a href="#contact" class="link-arrow" data-subject="Technical Support">Ζητήστε πληροφορίες <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
 </section>
 
-<!-- Cinematic break -->
-<section class="cinema" aria-labelledby="cinema-title">
-    <div class="cinema__media" data-parallax>
-        <img src="images/banner.webp" width="1600" height="1200"
-             alt="Γεννήτριες σε σειρά στον εξωτερικό χώρο των εγκαταστάσεων της εταιρείας"
-             loading="lazy" decoding="async">
-    </div>
-    <div class="shell cinema__inner">
-        <div class="cinema__top mono">
-            <span>Πανελλαδική παράδοση</span>
-            <span>40.3541° N — 22.5938° E</span>
-        </div>
+<!-- Facility gallery -->
+<section class="section--concrete gallery" aria-labelledby="gallery-title">
+    <div class="shell gallery__head">
         <div>
-            <h2 class="cinema__title display" id="cinema-title" data-reveal>Ισχύς εκεί που τη <span class="accent">χρειάζεστε.</span></h2>
-            <ul class="cinema__uses" data-reveal>
+            <p class="tag" data-reveal>Από τις εγκαταστάσεις μας</p>
+            <h2 class="heading" id="gallery-title" data-reveal>Ισχύς εκεί που τη <em>χρειάζεστε</em>.</h2>
+            <ul class="uses" data-reveal aria-label="Εφαρμογές">
                 <li>Εργοτάξια</li>
                 <li>Εργοστάσια</li>
                 <li>Εκδηλώσεις</li>
                 <li>Εφεδρική ισχύς</li>
             </ul>
         </div>
+        <div class="gallery__controls" data-reveal>
+            <button class="round-btn round-btn--prev" type="button" data-gallery="prev" aria-controls="gallery-track" aria-label="Προηγούμενες φωτογραφίες"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <button class="round-btn" type="button" data-gallery="next" aria-controls="gallery-track" aria-label="Επόμενες φωτογραφίες"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+    </div>
+    <div class="gallery__track" id="gallery-track" tabindex="0" role="region" aria-label="Φωτογραφίες από τις εγκαταστάσεις">
+        <figure class="photo gallery__item gallery__item--wide">
+            <img src="images/banner.webp" width="1600" height="1200" alt="Γεννήτριες σε σειρά στον εξωτερικό χώρο των εγκαταστάσεων" loading="lazy" decoding="async">
+            <figcaption>Ο εξωτερικός χώρος</figcaption>
+        </figure>
+        <figure class="photo gallery__item gallery__item--tall">
+            <img src="images/5.webp" width="1200" height="1600" alt="Γεννήτρια με πίνακα ελέγχου στο συνεργείο" loading="lazy" decoding="async">
+            <figcaption>Στο συνεργείο</figcaption>
+        </figure>
+        <figure class="photo gallery__item gallery__item--wide">
+            <img src="images/8-medium.webp" srcset="images/8-small.webp 480w, images/8-medium.webp 960w" sizes="620px" width="960" height="720" alt="Πίνακας ελέγχου γεννήτριας με το σήμα Πουρτσίδης - Σταυρίδης" loading="lazy" decoding="async">
+            <figcaption>Πίνακας ελέγχου</figcaption>
+        </figure>
+        <figure class="photo gallery__item gallery__item--wide">
+            <img src="images/1-medium.webp" srcset="images/1-small.webp 480w, images/1-medium.webp 960w" sizes="620px" width="960" height="720" alt="Γεννήτρια ντίζελ σε μεταλλικό πλαίσιο" loading="lazy" decoding="async">
+            <figcaption>Γεννήτρια σε πλαίσιο</figcaption>
+        </figure>
+        <figure class="photo gallery__item gallery__item--wide">
+            <img src="images/4-medium.webp" srcset="images/4-small.webp 480w, images/4-medium.webp 960w" sizes="620px" width="960" height="720" alt="Κινητήρας γεννήτριας στην αποθήκη" loading="lazy" decoding="async">
+            <figcaption>Κινητήρας γεννήτριας</figcaption>
+        </figure>
+        <figure class="photo gallery__item gallery__item--wide">
+            <img src="images/3-medium.webp" srcset="images/3-small.webp 480w, images/3-medium.webp 960w" sizes="620px" width="960" height="720" alt="Λεπτομέρεια κινητήρα με σωληνώσεις και εξαρτήματα" loading="lazy" decoding="async">
+            <figcaption>Λεπτομέρεια κινητήρα</figcaption>
+        </figure>
     </div>
 </section>
 
 <!-- Rentals -->
-<section id="services" class="section section--dark rentals" aria-labelledby="rentals-title">
+<section id="services" class="section section--navy rentals" aria-labelledby="rentals-title">
     <div class="shell">
-        <div class="grid-12 section-head">
-            <p class="section-head__label label" data-reveal><span class="label__index">03</span><span class="label__rule" aria-hidden="true"></span>Ενοικιάσεις</p>
-            <h2 class="section-head__title display display--h2" id="rentals-title" data-reveal>Ενοικίαση<br>γεννητριών.</h2>
-            <p class="section-head__aside" data-reveal>Ευέλικτες λύσεις ενοικίασης για οποιαδήποτε απαίτηση ισχύος σε όλη την Ελλάδα.</p>
+        <div class="grid-12 head">
+            <div class="head__main">
+                <p class="tag" data-reveal>Ενοικιάσεις</p>
+                <h2 class="heading" id="rentals-title" data-reveal>Ενοικίαση <em>γεννητριών</em>.</h2>
+            </div>
+            <div class="head__aside" data-reveal>
+                <p>Ευέλικτες λύσεις ενοικίασης για οποιαδήποτε απαίτηση ισχύος σε όλη την Ελλάδα.</p>
+            </div>
         </div>
 
-        <ol class="rentals__list" data-rentals>
-            <li class="rental is-active">
-                <figure class="rental__media">
+        <ol class="scenarios">
+            <li class="scenario rivets">
+                <figure class="photo scenario__media">
                     <img src="images/εικόνα_Viber_2025-03-31_10-45-07-516.webp" width="1600" height="1200"
                          alt="Αθόρυβες γεννήτριες ντίζελ στον εκθεσιακό χώρο"
                          loading="lazy" decoding="async">
-                    <figcaption class="mono" aria-hidden="true">01 / Εκδηλώσεις</figcaption>
                 </figure>
-                <div class="rental__body">
-                    <span class="rental__num" aria-hidden="true">01</span>
-                    <h3 class="rental__title"><button type="button" aria-expanded="true" aria-controls="rental-1">Εκδηλώσεις</button></h3>
-                    <div class="rental__detail" id="rental-1">
-                        <div>
-                            <p>Αξιόπιστες λύσεις ενέργειας για συναυλίες, φεστιβάλ, γάμους και εταιρικές εκδηλώσεις σε όλη την Ελλάδα.</p>
-                            <ul class="chips">
-                                <li>Αθόρυβη λειτουργία</li>
-                                <li>Ευέλικτες περίοδοι ενοικίασης</li>
-                                <li>Επιτόπια τεχνική υποστήριξη</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="scenario__body">
+                    <p class="scenario__count"><b>01</b> / 03</p>
+                    <h3>Εκδηλώσεις</h3>
+                    <p>Αξιόπιστες λύσεις ενέργειας για συναυλίες, φεστιβάλ, γάμους και εταιρικές εκδηλώσεις σε όλη την Ελλάδα.</p>
+                    <ul class="checks">
+                        <li>Αθόρυβη λειτουργία</li>
+                        <li>Ευέλικτες περίοδοι ενοικίασης</li>
+                        <li>Επιτόπια τεχνική υποστήριξη</li>
+                    </ul>
                 </div>
             </li>
-            <li class="rental">
-                <figure class="rental__media">
+            <li class="scenario rivets">
+                <figure class="photo scenario__media">
                     <img src="images/banner2.webp" width="1280" height="958"
-                         alt="Γεννήτριες και οχήματα εξυπηρέτησης έξω από τις εγκαταστάσεις της εταιρείας"
+                         alt="Γεννήτριες και οχήματα εξυπηρέτησης έξω από τις εγκαταστάσεις"
                          loading="lazy" decoding="async">
-                    <figcaption class="mono" aria-hidden="true">02 / Εργοτάξια</figcaption>
                 </figure>
-                <div class="rental__body">
-                    <span class="rental__num" aria-hidden="true">02</span>
-                    <h3 class="rental__title"><button type="button" aria-expanded="false" aria-controls="rental-2">Εργοτάξια</button></h3>
-                    <div class="rental__detail" id="rental-2">
-                        <div>
-                            <p>Γεννήτριες βαρέως τύπου για κατασκευαστικά έργα σε απομακρυσμένες τοποθεσίες και αστικά κέντρα.</p>
-                            <ul class="chips">
-                                <li>Ανθεκτικές μονάδες για εργοτάξιο</li>
-                                <li>Εκπτώσεις μακροχρόνιας ενοικίασης</li>
-                                <li>Παράδοση και εγκατάσταση</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="scenario__body">
+                    <p class="scenario__count"><b>02</b> / 03</p>
+                    <h3>Εργοτάξια</h3>
+                    <p>Γεννήτριες βαρέως τύπου για κατασκευαστικά έργα σε απομακρυσμένες τοποθεσίες και αστικά κέντρα.</p>
+                    <ul class="checks">
+                        <li>Ανθεκτικές μονάδες για εργοτάξιο</li>
+                        <li>Εκπτώσεις μακροχρόνιας ενοικίασης</li>
+                        <li>Παράδοση και εγκατάσταση</li>
+                    </ul>
                 </div>
             </li>
-            <li class="rental">
-                <figure class="rental__media">
-                    <img src="images/2-medium.webp"
-                         srcset="images/2-small.webp 480w, images/2-medium.webp 960w"
-                         sizes="(max-width: 900px) 100vw, 50vw"
-                         width="960" height="1280"
-                         alt="Γεννήτρια με κινητήρα V έτοιμη για παράδοση"
+            <li class="scenario rivets">
+                <figure class="photo scenario__media">
+                    <img src="images/AboutUs-medium.webp"
+                         srcset="images/AboutUs-small.webp 480w, images/AboutUs-720.webp 720w, images/AboutUs-medium.webp 960w, images/AboutUs.webp 1920w"
+                         sizes="(max-width: 900px) 100vw, 55vw"
+                         width="4032" height="3024"
+                         alt="Γερανοφόρο όχημα της εταιρείας εκφορτώνει εξοπλισμό"
                          loading="lazy" decoding="async">
-                    <figcaption class="mono" aria-hidden="true">03 / Έκτακτη ανάγκη</figcaption>
                 </figure>
-                <div class="rental__body">
-                    <span class="rental__num" aria-hidden="true">03</span>
-                    <h3 class="rental__title"><button type="button" aria-expanded="false" aria-controls="rental-3">Έκτακτη ανάγκη</button></h3>
-                    <div class="rental__detail" id="rental-3">
-                        <div>
-                            <p>Βραχυπρόθεσμες λύσεις εφεδρικής ισχύος για επιχειρήσεις και σπίτια κατά τη διάρκεια διακοπών ρεύματος ή συντήρησης δικτύου.</p>
-                            <ul class="chips">
-                                <li>Ταχεία ανάπτυξη</li>
-                                <li>Ευέλικτες επιλογές χωρητικότητας</li>
-                                <li>Παράδοση σε νησιά</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="scenario__body">
+                    <p class="scenario__count"><b>03</b> / 03</p>
+                    <h3>Έκτακτη ανάγκη</h3>
+                    <p>Βραχυπρόθεσμες λύσεις εφεδρικής ισχύος για επιχειρήσεις και σπίτια κατά τη διάρκεια διακοπών ρεύματος ή συντήρησης δικτύου.</p>
+                    <ul class="checks">
+                        <li>Ταχεία ανάπτυξη</li>
+                        <li>Ευέλικτες επιλογές χωρητικότητας</li>
+                        <li>Παράδοση σε νησιά</li>
+                    </ul>
                 </div>
             </li>
         </ol>
 
         <div class="rentals__foot">
-            <a href="#contact" class="btn btn--ghost" data-subject="Rental Inquiry">Ζητήστε προσφορά ενοικίασης <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="#contact" class="btn btn--red" data-subject="Rental Inquiry">Ζητήστε προσφορά ενοικίασης <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
     </div>
 </section>
 
-<!-- Why us: specification sheet -->
-<section id="why-us" class="section section--light spec" aria-labelledby="why-title">
-    <div class="shell grid-12">
-        <div class="spec__intro">
-            <p class="label" data-reveal><span class="label__index">04</span><span class="label__rule" aria-hidden="true"></span>Γιατί Pourtsidis</p>
-            <h2 class="display" id="why-title" data-reveal>Η διαφορά<br>μας.</h2>
-            <p class="lead" data-reveal style="margin-top: 1.2rem">Γιατί να επιλέξετε την Pourtsidis Generators.</p>
-            <div class="frame" data-reveal="media">
-                <img src="images/AboutUs1.webp" width="1024" height="768"
-                     alt="Το εσωτερικό της αποθήκης με κινητήρες, γεννήτριες και ανταλλακτικά"
-                     loading="lazy" decoding="async">
+<!-- Why us: control console -->
+<section id="why-us" class="section why" aria-labelledby="why-title">
+    <div class="shell">
+        <div class="grid-12 head">
+            <div class="head__main">
+                <p class="tag" data-reveal>Η διαφορά μας</p>
+                <h2 class="heading" id="why-title" data-reveal>Γιατί να επιλέξετε την <em>Pourtsidis Generators</em>.</h2>
             </div>
         </div>
 
-        <ol class="spec__rows">
-            <li class="spec-row" data-reveal>
-                <span class="spec-row__num mono">01</span>
-                <span class="spec-row__key" aria-hidden="true">24/7</span>
-                <div>
+        <div class="console rivets" data-reveal>
+            <p class="console__bar" aria-hidden="true"><span>Πίνακας ελέγχου</span><span>Pourtsidis · Κίτρος</span></p>
+            <ul class="console__grid">
+                <li class="module">
+                    <span class="module__status" aria-hidden="true"><span class="led"></span>Ενεργό</span>
+                    <span class="module__value" aria-hidden="true">24/7</span>
                     <h3>Υποστήριξη 24/7</h3>
                     <p>Η ομάδα τεχνικής υποστήριξής μας είναι διαθέσιμη όλο το 24ωρο για να σας βοηθήσει με οποιοδήποτε πρόβλημα ή έκτακτη ανάγκη.</p>
-                </div>
-            </li>
-            <li class="spec-row" data-reveal>
-                <span class="spec-row__num mono">02</span>
-                <span class="spec-row__key spec-row__key--muted" aria-hidden="true">Service</span>
-                <div>
+                </li>
+                <li class="module">
+                    <span class="module__status" aria-hidden="true"><span class="led"></span>Ενεργό</span>
+                    <span class="module__value" aria-hidden="true">Service</span>
                     <h3>Υπηρεσία συντήρησης</h3>
                     <p>Ολοκληρωμένα προγράμματα συντήρησης για να διατηρούνται οι γεννήτριές σας σε μέγιστη απόδοση.</p>
-                </div>
-            </li>
-            <li class="spec-row" data-reveal>
-                <span class="spec-row__num mono">03</span>
-                <span class="spec-row__key" aria-hidden="true">Ελλάδα</span>
-                <div>
+                </li>
+                <li class="module">
+                    <span class="module__status" aria-hidden="true"><span class="led"></span>Ενεργό</span>
+                    <span class="module__value" aria-hidden="true">Ελλάδα</span>
                     <h3>Πανελλαδική παράδοση</h3>
                     <p>Γρήγορες υπηρεσίες παράδοσης και εγκατάστασης σε όλη την Ελλάδα.</p>
-                </div>
-            </li>
-            <li class="spec-row" data-reveal>
-                <span class="spec-row__num mono">04</span>
-                <span class="spec-row__key spec-row__key--muted" aria-hidden="true">Ποιότητα</span>
-                <div>
+                </li>
+                <li class="module">
+                    <span class="module__status" aria-hidden="true"><span class="led"></span>Ενεργό</span>
+                    <span class="module__value" aria-hidden="true">Ποιότητα</span>
                     <h3>Εγγύηση ποιότητας</h3>
                     <p>Προσφέρουμε μόνο γεννήτριες κορυφαίας ποιότητας από αναγνωρισμένους διεθνείς κατασκευαστές, με πλήρεις εγγυήσεις.</p>
-                </div>
-            </li>
-        </ol>
+                </li>
+            </ul>
+        </div>
     </div>
 </section>
 
-<!-- Conversion CTA -->
-<section class="section section--dark cta" aria-labelledby="cta-title">
-    <div class="cta__bg" aria-hidden="true">
-        <img src="images/5.webp" width="1200" height="1600" alt="" loading="lazy" decoding="async">
-    </div>
+<!-- Conversion band -->
+<section class="cta" aria-labelledby="cta-title">
     <div class="shell grid-12">
-        <p class="cta__label label" data-reveal><span class="label__index">05</span><span class="label__rule" aria-hidden="true"></span>Άμεση υποστήριξη</p>
-        <h2 class="cta__title display" id="cta-title" data-reveal>Χρειάζεστε<br><span class="accent">ισχύ;</span></h2>
-        <div class="cta__body" data-reveal>
-            <p class="lead">Πείτε μας τι χρειάζεστε και θα σας προτείνουμε την κατάλληλη λύση.</p>
-            <a href="#contact" class="btn btn--primary">Ζητήστε προσφορά <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <div class="cta__main">
+            <p class="tag" data-reveal>Άμεση υποστήριξη</p>
+            <h2 class="cta__title" id="cta-title" data-reveal>Χρειάζεστε ισχύ;</h2>
+            <p class="cta__lead" data-reveal>Πείτε μας τι χρειάζεστε και θα σας προτείνουμε την κατάλληλη λύση.</p>
+            <a href="#contact" class="btn btn--white" data-reveal>Ζητήστε προσφορά <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
         <div class="cta__contacts" data-reveal>
             <a class="cta__contact" href="tel:+302351600824">
-                <span class="mono">Γραφείο</span>
+                <span>Γραφείο</span>
                 <strong>+30 2351 600824</strong>
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
             <a class="cta__contact" href="tel:+306977831465">
-                <span class="mono">Κινητό</span>
+                <span>Κινητό</span>
                 <strong>+30 6977 831465</strong>
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
             <a class="cta__contact" href="mailto:dimitrispourtsidis@yahoo.gr">
-                <span class="mono">Email</span>
+                <span>Email</span>
                 <strong>dimitrispourtsidis@yahoo.gr</strong>
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
+            <p class="cta__note">Κυριακή: κλειστά, με διαθέσιμη υποστήριξη έκτακτης ανάγκης.</p>
         </div>
     </div>
 </section>
 
 <!-- Contact -->
-<section id="contact" class="section section--light contact" aria-labelledby="contact-title">
+<section id="contact" class="section contact" aria-labelledby="contact-title">
     <div class="shell">
         <div class="grid-12">
             <div class="contact__intro">
-                <p class="label" data-reveal><span class="label__index">06</span><span class="label__rule" aria-hidden="true"></span>Επικοινωνία</p>
-                <h2 class="display" id="contact-title" data-reveal>Ας<br>μιλήσουμε.</h2>
+                <p class="tag" data-reveal>Επικοινωνία</p>
+                <h2 class="heading" id="contact-title" data-reveal>Ας <em>μιλήσουμε</em>.</h2>
                 <p class="lead" data-reveal>Επικοινωνήστε μαζί μας για προσφορές, υποστήριξη ή πληροφορίες σχετικά με τα προϊόντα και τις υπηρεσίες γεννητριών μας.</p>
+
+                <dl class="info" data-reveal>
+                    <div>
+                        <dt><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span class="visually-hidden">Τοποθεσία</span></dt>
+                        <dd><strong aria-hidden="true">Τοποθεσία</strong>13ο χλμ. Π.Ε.Ο. Κατερίνης–Θεσ/νίκης, Κίτρος 60064, Ελλάδα</dd>
+                    </div>
+                    <div>
+                        <dt><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="visually-hidden">Τηλέφωνα</span></dt>
+                        <dd><strong aria-hidden="true">Τηλέφωνα</strong>
+                            <span class="phones">
+                                <a href="tel:+302351600824">+30 2351 600824</a>
+                                <a href="tel:+306977831465">+30 6977 831465</a>
+                                <a href="tel:+306977634666">+30 6977 634666</a>
+                            </span>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span class="visually-hidden">Email</span></dt>
+                        <dd><strong aria-hidden="true">Email</strong>Πωλήσεις: <a href="mailto:dimitrispourtsidis@yahoo.gr">dimitrispourtsidis@yahoo.gr</a></dd>
+                    </div>
+                    <div>
+                        <dt><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span class="visually-hidden">Ώρες λειτουργίας</span></dt>
+                        <dd><strong aria-hidden="true">Ώρες λειτουργίας</strong>
+                            <span class="hours">
+                                <span>Δευτέρα – Παρασκευή</span><span>8:00 πμ – 6:00 μμ</span>
+                                <span>Σάββατο</span><span>9:00 πμ – 3:00 μμ</span>
+                                <span>Κυριακή</span><span>Κλειστά (διαθέσιμη υποστήριξη έκτακτης ανάγκης)</span>
+                            </span>
+                        </dd>
+                    </div>
+                </dl>
             </div>
 
-            <div class="contact__form" data-reveal>
-                <h3 class="visually-hidden">Στείλτε μας μήνυμα</h3>
+            <div class="sheet" data-reveal>
+                <div class="sheet__head">
+                    <h3>Στείλτε μας μήνυμα</h3>
+                    <span>Δελτίο αιτήματος</span>
+                </div>
                 <form id="contactForm" class="form" novalidate
                       data-msg-required="Παρακαλώ συμπληρώστε αυτό το πεδίο."
                       data-msg-email="Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email."
@@ -555,57 +529,24 @@
                     </div>
                     <p class="form__status" role="alert" id="form-status"></p>
                     <div class="form__actions">
-                        <button type="submit" class="btn btn--primary">Προετοιμασία email <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                        <button type="submit" class="btn btn--red">Προετοιμασία email <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
                         <p class="form__note">Θα ανοίξει η εφαρμογή email σας με το μήνυμα έτοιμο για αποστολή.</p>
                     </div>
                 </form>
             </div>
         </div>
 
-        <div class="grid-12 locate">
-            <dl class="locate__info" data-reveal>
-                <div class="info-row">
-                    <dt class="mono">Τοποθεσία</dt>
-                    <dd>13ο χλμ. Π.Ε.Ο. Κατερίνης–Θεσ/νίκης, Κίτρος 60064, Ελλάδα</dd>
-                </div>
-                <div class="info-row">
-                    <dt class="mono">Τηλέφωνα</dt>
-                    <dd class="phones">
-                        <a href="tel:+302351600824">+30 2351 600824</a>
-                        <a href="tel:+306977831465">+30 6977 831465</a>
-                        <a href="tel:+306977634666">+30 6977 634666</a>
-                    </dd>
-                </div>
-                <div class="info-row">
-                    <dt class="mono">Email</dt>
-                    <dd>Πωλήσεις: <a href="mailto:dimitrispourtsidis@yahoo.gr">dimitrispourtsidis@yahoo.gr</a></dd>
-                </div>
-                <div class="info-row">
-                    <dt class="mono">Ωράριο</dt>
-                    <dd class="hours">
-                        <span>Δευτέρα – Παρασκευή</span><span>8:00 πμ – 6:00 μμ</span>
-                        <span>Σάββατο</span><span>9:00 πμ – 3:00 μμ</span>
-                        <span>Κυριακή</span><span>Κλειστά (διαθέσιμη υποστήριξη έκτακτης ανάγκης)</span>
-                    </dd>
-                </div>
-            </dl>
-
-            <div class="locate__map" data-reveal>
-                <div class="map">
-                    <p class="map__label mono"><span><b>●</b> Κίτρος 60064 · GR</span><span>40.3541° N / 22.5938° E</span></p>
-                    <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.1839848947604!2d22.593811676564746!3d40.35409267144394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1357fd7f6241a193%3A0x4d22880c0f6e27f7!2z16DOn9Cf0KXQoNKE0KPQhtCU0JfQoy3QodCi0JDQktCg0JjQlNCT0KMg0J4u0JUu!5e0!3m2!1sen!2sgr!4v1712334350147!5m2!1sen!2sgr"
-                            width="600"
-                            height="400"
-                            title="Χάρτης τοποθεσίας Pourtsidis Generators"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    <span class="map__corner map__corner--tl" aria-hidden="true"></span>
-                    <span class="map__corner map__corner--br" aria-hidden="true"></span>
-                </div>
-            </div>
+        <div class="map" data-reveal>
+            <p class="map__label" aria-hidden="true"><span class="led"></span>Pourtsidis Generators · Κίτρος 60064</p>
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.1839848947604!2d22.593811676564746!3d40.35409267144394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1357fd7f6241a193%3A0x4d22880c0f6e27f7!2z16DOn9Cf0KXQoNKE0KPQhtCU0JfQoy3QodCi0JDQktCg0JjQlNCT0KMg0J4u0JUu!5e0!3m2!1sen!2sgr!4v1712334350147!5m2!1sen!2sgr"
+                    width="600"
+                    height="400"
+                    title="Χάρτης τοποθεσίας Pourtsidis Generators"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </div>
 </section>
@@ -616,8 +557,11 @@
     <div class="shell">
         <div class="grid-12 footer__top">
             <div class="footer__brand">
-                <p class="footer__wordmark">Pourtsidis<span>Generators</span></p>
-                <p class="footer__tagline mono">Ισχύς από το 1991.</p>
+                <a class="brand" href="#home" aria-label="Pourtsidis Generators - Αρχική">
+                    <span class="brand__plate"><img src="favicon.webp" width="256" height="256" alt="" loading="lazy"></span>
+                    <span class="brand__text" aria-hidden="true">Pourtsidis<span>Generators</span></span>
+                </a>
+                <p class="footer__tagline">Ισχύς από το <em>1991</em>.</p>
                 <p class="footer__sub">Ο αξιόπιστος συνεργάτης ενέργειας.</p>
             </div>
             <div class="footer__col footer__col--nav">
@@ -646,14 +590,13 @@
                     <li><a href="https://pourtsidis.car.gr/builders/" target="_blank" rel="noopener noreferrer">Car.gr<span class="visually-hidden"> (ανοίγει σε νέα καρτέλα)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
                     <li><a href="https://www.mascus.gr/p-pourtsidis-m-stavridis-o-e/b9107036,1,relevance,searchdealer.html" target="_blank" rel="noopener noreferrer">Mascus.gr<span class="visually-hidden"> (ανοίγει σε νέα καρτέλα)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
                 </ul>
-                <div class="lang footer__lang" aria-label="Γλώσσα">
-                    <a href="index.html" lang="el" aria-current="page">GR</a>
-                    <span class="lang__sep" aria-hidden="true"></span>
-                    <a href="index-en.html" lang="en" hreflang="en">EN</a>
+                <div class="lang" aria-label="Γλώσσα">
+                    <a href="index.html" lang="el" aria-current="page"><span>GR</span></a>
+                    <a href="index-en.html" lang="en" hreflang="en"><span>EN</span></a>
                 </div>
             </div>
         </div>
-        <div class="footer__bottom mono">
+        <div class="footer__bottom">
             <p>&copy; 2026 Pourtsidis Generators. Όλα τα δικαιώματα διατηρούνται.</p>
             <p>Π. Πουρτσίδης – Μ. Σταυρίδης Ο.Ε.</p>
             <a href="#home">Επιστροφή στην κορυφή <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
