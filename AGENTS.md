@@ -5,7 +5,7 @@
 This repository contains a static website for generators. The main pages are
 `index.html` and `index-en.html`; shared styling lives in `styles.css`, and
 browser interactions live in `script.js`. Images and logos are stored in
-`images/`, and the self-hosted heading typeface (Sofia Sans Condensed, OFL) is
+`images/`, and the self-hosted heading typeface (Roboto Slab, Apache 2.0) is
 in `fonts/`. The previous design is archived in `original/` for reference
 (marked `noindex`); do not edit it when changing the live site. There is no
 package manager, build system, or automated test suite.

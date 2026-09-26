@@ -71,17 +71,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /* ------------------------------------------------------------------
-       Header state, scroll progress and back-to-top (rAF-throttled)
+       Header state and back-to-top (rAF-throttled)
        ------------------------------------------------------------------ */
     const scrollToTopBtn = document.getElementById('scrollToTop');
-    const progressBar = document.querySelector('.site-header__progress');
 
     const updateScrollState = function() {
         const scrollY = window.scrollY;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-
         if (header) header.classList.toggle('is-scrolled', scrollY > 40);
-        if (progressBar) progressBar.style.setProperty('--progress', maxScroll > 0 ? (scrollY / maxScroll).toFixed(4) : 0);
         if (scrollToTopBtn) scrollToTopBtn.classList.toggle('is-visible', scrollY > 640);
     };
 
@@ -132,87 +128,66 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     /* ------------------------------------------------------------------
-       Product tabs (role=tablist, arrow / Home / End keys)
+       Product panels: single-open accordion
+       (Enter/Space opens; Arrow keys, Home and End move between headers)
        ------------------------------------------------------------------ */
-    const tabList = document.querySelector('.products__tabs');
-    const tabButtons = tabList ? Array.from(tabList.querySelectorAll('[role="tab"]')) : [];
-    const productCounter = document.querySelector('[data-product-index]');
+    const machines = Array.from(document.querySelectorAll('.machine'));
+    const machineButtons = machines.map(function(machine) { return machine.querySelector('.machine__btn'); });
 
-    const selectTab = function(button) {
-        tabButtons.forEach(function(tab) {
-            const isSelected = tab === button;
-            const panel = document.getElementById(tab.getAttribute('aria-controls'));
-
-            tab.setAttribute('aria-selected', String(isSelected));
-            tab.setAttribute('tabindex', isSelected ? '0' : '-1');
-            if (panel) panel.classList.toggle('is-active', isSelected);
+    const openMachine = function(machine) {
+        machines.forEach(function(item, index) {
+            const isOpen = item === machine;
+            item.classList.toggle('is-open', isOpen);
+            machineButtons[index].setAttribute('aria-expanded', String(isOpen));
         });
-
-        if (productCounter) {
-            productCounter.textContent = String(tabButtons.indexOf(button) + 1).padStart(2, '0');
-        }
     };
 
-    tabButtons.forEach(function(button, index) {
+    machineButtons.forEach(function(button, index) {
         button.addEventListener('click', function() {
-            selectTab(button);
+            openMachine(machines[index]);
         });
 
         button.addEventListener('keydown', function(event) {
             let nextIndex = null;
 
-            if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabButtons.length;
-            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+            if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % machineButtons.length;
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + machineButtons.length) % machineButtons.length;
             if (event.key === 'Home') nextIndex = 0;
-            if (event.key === 'End') nextIndex = tabButtons.length - 1;
+            if (event.key === 'End') nextIndex = machineButtons.length - 1;
             if (nextIndex === null) return;
 
             event.preventDefault();
-            tabButtons[nextIndex].focus();
-            selectTab(tabButtons[nextIndex]);
+            machineButtons[nextIndex].focus();
         });
     });
 
     /* ------------------------------------------------------------------
-       Rental panels: hover / focus / click reveals the related image
-       (desktop). On smaller screens every panel is expanded.
+       Facility gallery: previous / next buttons for the scroll-snap track
        ------------------------------------------------------------------ */
-    const rentals = Array.from(document.querySelectorAll('.rental'));
+    const track = document.querySelector('.gallery__track');
+    const prevBtn = document.querySelector('[data-gallery="prev"]');
+    const nextBtn = document.querySelector('[data-gallery="next"]');
 
-    const activateRental = function(rental) {
-        rentals.forEach(function(item) {
-            const isActive = item === rental;
-            const trigger = item.querySelector('.rental__title button');
+    if (track && prevBtn && nextBtn) {
+        const updateGalleryButtons = function() {
+            const maxScroll = track.scrollWidth - track.clientWidth - 2;
+            prevBtn.disabled = track.scrollLeft <= 2;
+            nextBtn.disabled = track.scrollLeft >= maxScroll;
+        };
 
-            item.classList.toggle('is-active', isActive);
-            if (trigger) trigger.setAttribute('aria-expanded', String(isActive || !desktopQuery.matches));
-        });
-    };
-
-    rentals.forEach(function(rental) {
-        const trigger = rental.querySelector('.rental__title button');
-
-        rental.addEventListener('mouseenter', function() {
-            if (desktopQuery.matches) activateRental(rental);
-        });
-
-        if (trigger) {
-            trigger.addEventListener('click', function() {
-                if (desktopQuery.matches) activateRental(rental);
+        const scrollGallery = function(direction) {
+            track.scrollBy({
+                left: direction * track.clientWidth * 0.75,
+                behavior: prefersReducedMotion() ? 'auto' : 'smooth'
             });
-            trigger.addEventListener('focus', function() {
-                if (desktopQuery.matches) activateRental(rental);
-            });
-        }
-    });
+        };
 
-    const syncRentalsToViewport = function() {
-        const active = rentals.find(function(item) { return item.classList.contains('is-active'); }) || rentals[0];
-        if (active) activateRental(active);
-    };
-
-    syncRentalsToViewport();
-    desktopQuery.addEventListener('change', syncRentalsToViewport);
+        prevBtn.addEventListener('click', function() { scrollGallery(-1); });
+        nextBtn.addEventListener('click', function() { scrollGallery(1); });
+        track.addEventListener('scroll', updateGalleryButtons, { passive: true });
+        window.addEventListener('resize', updateGalleryButtons);
+        updateGalleryButtons();
+    }
 
     /* ------------------------------------------------------------------
        Scroll reveals (IntersectionObserver) with sibling stagger
@@ -227,10 +202,6 @@ document.addEventListener('DOMContentLoaded', function() {
         element.style.setProperty('--i', String(Math.max(0, siblings.indexOf(element))));
     });
 
-    const showAll = function() {
-        revealElements.forEach(function(element) { element.classList.add('is-inview'); });
-    };
-
     if ('IntersectionObserver' in window && !prefersReducedMotion()) {
         const revealObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
@@ -238,15 +209,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 entry.target.classList.add('is-inview');
                 revealObserver.unobserve(entry.target);
             });
-        }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+        }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
 
         revealElements.forEach(function(element) { revealObserver.observe(element); });
     } else {
-        showAll();
+        revealElements.forEach(function(element) { element.classList.add('is-inview'); });
     }
 
     /* ------------------------------------------------------------------
-       Metric counters (34+, 1500 kW). 24/7 and 1991 are revealed, not counted.
+       Data-plate counters (34+, 1500 kW). 24/7 and 1991 are not counted.
        ------------------------------------------------------------------ */
     const counters = Array.from(document.querySelectorAll('[data-count]'));
 
@@ -277,47 +248,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { threshold: 0.6 });
 
         counters.forEach(function(counter) { counterObserver.observe(counter); });
-    }
-
-    /* ------------------------------------------------------------------
-       Subtle scroll-linked image drift on the cinematic break (±30px)
-       ------------------------------------------------------------------ */
-    const parallaxItems = Array.from(document.querySelectorAll('[data-parallax]'));
-
-    if (parallaxItems.length && 'IntersectionObserver' in window && !prefersReducedMotion()) {
-        const visibleItems = new Set();
-        let parallaxTicking = false;
-
-        const updateParallax = function() {
-            const viewport = window.innerHeight;
-            visibleItems.forEach(function(item) {
-                const rect = item.parentElement.getBoundingClientRect();
-                const progress = (viewport - rect.top) / (viewport + rect.height);
-                const offset = (Math.min(Math.max(progress, 0), 1) - 0.5) * 60;
-                item.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
-            });
-            parallaxTicking = false;
-        };
-
-        const requestParallax = function() {
-            if (parallaxTicking || !visibleItems.size) return;
-            parallaxTicking = true;
-            window.requestAnimationFrame(updateParallax);
-        };
-
-        const parallaxObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                const item = entry.target.querySelector('[data-parallax]');
-                if (!item) return;
-                if (entry.isIntersecting) visibleItems.add(item);
-                else visibleItems.delete(item);
-            });
-            requestParallax();
-        });
-
-        parallaxItems.forEach(function(item) { parallaxObserver.observe(item.parentElement); });
-        window.addEventListener('scroll', requestParallax, { passive: true });
-        window.addEventListener('resize', requestParallax);
     }
 
     /* ------------------------------------------------------------------

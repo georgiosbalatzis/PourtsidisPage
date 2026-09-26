@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pourtsidis Generators - Generator Sales &amp; Rentals</title>
     <meta name="description" content="Sales, rentals and technical support for generators, engines and spare parts across Greece since 1991.">
-    <meta name="theme-color" content="#0b0d0f">
+    <meta name="theme-color" content="#0e1c2f">
     <link rel="alternate" hreflang="el" href="index.html">
     <link rel="alternate" hreflang="en" href="index-en.html">
     <link rel="dns-prefetch" href="//maps.googleapis.com">
-    <link rel="preload" href="fonts/sofia-sans-condensed-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="images/banner-mobile.webp" as="image" type="image/webp" media="(max-width: 900px)" fetchpriority="high">
-    <link rel="preload" as="image" type="image/webp" imagesrcset="images/6-small.webp 480w, images/6-medium.webp 960w, images/6.webp 1024w" imagesizes="(max-width: 1100px) 54vw, 50vw" media="(min-width: 901px)" fetchpriority="high">
+    <link rel="preload" href="fonts/roboto-slab-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" type="image/webp" imagesrcset="images/9-small.webp 480w, images/9-medium.webp 960w, images/9.webp 1920w" imagesizes="100vw" fetchpriority="high">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/webp" href="favicon.webp">
     <link rel="stylesheet" href="styles.css">
@@ -19,9 +18,13 @@
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 5.5l6.5 6.5-6.5 6.5"/></symbol>
-    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 21V4M5.5 10.5 12 4l6.5 6.5"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13.5 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 20V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l1.8 4.3-2.3 1.4a11 11 0 0 0 5.3 5.3l1.4-2.3L19 14.5V18a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.5 6 8.5 7 8.5-7"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
 </svg>
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -36,32 +39,30 @@
 
         <nav class="nav" id="site-menu" aria-label="Main navigation">
             <ul class="nav__list">
-                <li><a href="#about" class="nav__link"><span class="nav__num" aria-hidden="true">01</span>Company</a></li>
-                <li><a href="#products" class="nav__link"><span class="nav__num" aria-hidden="true">02</span>Products</a></li>
-                <li><a href="#services" class="nav__link"><span class="nav__num" aria-hidden="true">03</span>Rentals</a></li>
-                <li><a href="#why-us" class="nav__link"><span class="nav__num" aria-hidden="true">04</span>Support</a></li>
-                <li class="nav__item--mobile"><a href="#contact" class="nav__link"><span class="nav__num" aria-hidden="true">05</span>Contact</a></li>
+                <li><a href="#about" class="nav__link"><span class="nav__num" aria-hidden="true"></span>Company</a></li>
+                <li><a href="#products" class="nav__link"><span class="nav__num" aria-hidden="true"></span>Products</a></li>
+                <li><a href="#services" class="nav__link"><span class="nav__num" aria-hidden="true"></span>Rentals</a></li>
+                <li><a href="#why-us" class="nav__link"><span class="nav__num" aria-hidden="true"></span>Support</a></li>
+                <li class="nav__item--mobile"><a href="#contact" class="nav__link"><span class="nav__num" aria-hidden="true"></span>Contact</a></li>
             </ul>
             <div class="nav__mobile-extra">
-                <a href="#contact" class="btn btn--primary" data-close-menu>Request a quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a href="#contact" class="btn btn--red">Request a quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                 <div class="nav__mobile-row">
                     <div class="lang" aria-label="Language">
-                        <a href="index.html" lang="el" hreflang="el">GR</a>
-                        <span class="lang__sep" aria-hidden="true"></span>
-                        <a href="index-en.html" lang="en" aria-current="page">EN</a>
+                        <a href="index.html" lang="el" hreflang="el"><span>GR</span></a>
+                        <a href="index-en.html" lang="en" aria-current="page"><span>EN</span></a>
                     </div>
-                    <a class="mono" href="tel:+302351600824">+30 2351 600824</a>
+                    <a href="tel:+302351600824">+30 2351 600824</a>
                 </div>
             </div>
         </nav>
 
         <div class="header__actions">
             <div class="lang" aria-label="Language">
-                <a href="index.html" lang="el" hreflang="el">GR</a>
-                <span class="lang__sep" aria-hidden="true"></span>
-                <a href="index-en.html" lang="en" aria-current="page">EN</a>
+                <a href="index.html" lang="el" hreflang="el"><span>GR</span></a>
+                <a href="index-en.html" lang="en" aria-current="page"><span>EN</span></a>
             </div>
-            <a href="#contact" class="btn btn--primary btn--sm header__cta">Request a quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="#contact" class="btn btn--red btn--sm header__cta">Request a quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false" data-label-open="Open menu" data-label-close="Close menu">
                 <span class="nav-toggle__bar"></span>
                 <span class="nav-toggle__bar"></span>
@@ -69,455 +70,428 @@
             </button>
         </div>
     </div>
-    <span class="site-header__progress" aria-hidden="true"></span>
 </header>
 
 <main id="main-content">
 
 <!-- Hero -->
 <section id="home" class="hero" aria-labelledby="hero-title">
-    <div class="shell hero__grid">
-        <div class="hero__content">
-            <p class="hero__kicker label"><span class="label__index">Pourtsidis</span><span class="label__rule" aria-hidden="true"></span>Since 1991</p>
-            <h1 class="hero__title" id="hero-title">
-                <span class="hero__line"><span>Dependable</span></span>
-                <span class="hero__line"><span>power.</span></span>
-                <span class="hero__line hero__line--accent"><span>Every time.</span></span>
-            </h1>
-            <p class="hero__lead">Generator sales, rentals, and technical support for businesses, construction sites, and events across Greece.</p>
-            <div class="hero__actions">
-                <a href="#products" class="btn btn--primary">Find your solution <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-                <a href="#contact" class="btn btn--ghost">Request a quote</a>
-            </div>
-            <p class="hero__meta mono" aria-label="Company highlights">
-                <span>5—1500 <span class="unit">kW</span></span>
-                <span>24/7 support</span>
-                <span>Nationwide</span>
-            </p>
+    <div class="hero__media">
+        <img src="images/9-medium.webp"
+             srcset="images/9-small.webp 480w, images/9-medium.webp 960w, images/9.webp 1920w"
+             sizes="100vw"
+             width="4032" height="3024"
+             alt="V engine and a company-badged generator in the Pourtsidis Generators warehouse"
+             fetchpriority="high" decoding="async">
+    </div>
+
+    <div class="ats rivets" aria-hidden="true">
+        <p class="ats__title"><span>Automatic transfer</span><span class="ats__screen">ATS</span></p>
+        <div class="ats__rows">
+            <p class="ats__row"><span class="led led--mains"></span><b>Mains</b><span class="ats__state">Outage</span></p>
+            <p class="ats__row"><span class="led led--gen"></span><b>Generator</b><span class="ats__state">Running</span></p>
+            <p class="ats__row"><span class="led led--load"></span><b>Load</b><span class="ats__state">Powered</span></p>
         </div>
     </div>
-    <div class="hero__media">
-        <picture>
-            <source media="(max-width: 900px)" srcset="images/banner-mobile.webp" width="768" height="576">
-            <img src="images/6-medium.webp"
-                 srcset="images/6-small.webp 480w, images/6-medium.webp 960w, images/6.webp 1024w"
-                 sizes="(max-width: 1100px) 54vw, 50vw"
-                 width="960" height="1440"
-                 alt="Enclosed diesel generator in front of the Pourtsidis Generators facility"
-                 fetchpriority="high" decoding="async">
-        </picture>
-        <p class="hero__spec" aria-hidden="true"><span>Power systems</span><strong>5—1500 <span class="unit">kW</span></strong><span>Est. 1991</span></p>
+
+    <div class="shell hero__inner">
+        <div class="hero__plate rivets">
+            <p class="tag">Power solutions since 1991</p>
+            <h1 class="hero__title" id="hero-title"><span>Dependable power.</span> <span>Every time.</span></h1>
+            <p class="hero__lead">Generator sales, rentals, and technical support for businesses, construction sites, and events across Greece.</p>
+            <div class="hero__actions">
+                <a href="#products" class="btn btn--red">Find your solution <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a href="#contact" class="btn btn--line-light">Request a quote</a>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Metrics -->
-<section class="metrics section--light" aria-label="The company in numbers">
-    <div class="shell">
-        <div class="metrics__head">
-            <p class="mono" data-reveal>The company in numbers</p>
-            <p class="mono" data-reveal>Kitros · Greece</p>
+<!-- Company + data plate -->
+<section id="about" class="section company" aria-labelledby="about-title">
+    <div class="shell grid-12">
+        <div class="company__text">
+            <p class="tag" data-reveal>Our company</p>
+            <h2 class="heading" id="about-title" data-reveal>Your trusted partner <em>in Greece</em>.</h2>
+            <div data-reveal>
+                <p class="lead">Since 1991, P. Pourtsidis – M. Stavridis O.E. has been providing high-quality generator solutions to businesses, construction sites, factories, events, and homeowners throughout Greece.</p>
+                <p>In our facility, you can find the largest range of generators, marine engines, and even spare parts.</p>
+            </div>
+            <figure class="photo company__photo" data-reveal="photo">
+                <img src="images/AboutUs1.webp" width="1024" height="768"
+                     alt="Inside the warehouse with engines, generators and spare parts"
+                     loading="lazy" decoding="async">
+                <figcaption>Our warehouse in Kitros</figcaption>
+            </figure>
         </div>
-        <ul class="metrics__list">
-            <li class="metric" data-reveal>
-                <span class="metric__index mono" aria-hidden="true">01</span>
-                <span class="metric__value"><span data-count="34">34</span><small>+</small></span>
-                <span class="metric__label">Years of<br>experience</span>
-            </li>
-            <li class="metric" data-reveal>
-                <span class="metric__index mono" aria-hidden="true">02</span>
-                <span class="metric__value">24/7</span>
-                <span class="metric__label">Technical<br>support</span>
-            </li>
-            <li class="metric" data-reveal>
-                <span class="metric__index mono" aria-hidden="true">03</span>
-                <span class="metric__value metric__value--range">5<span class="metric__dash">—</span><span data-count="1500">1500</span><small>kW</small></span>
-                <span class="metric__label">Power<br>range</span>
-            </li>
-            <li class="metric" data-reveal>
-                <span class="metric__index mono" aria-hidden="true">04</span>
-                <span class="metric__value">1991</span>
-                <span class="metric__label">Year<br>founded</span>
-            </li>
-        </ul>
+
+        <div class="company__plate" data-reveal>
+            <div class="dataplate rivets">
+                <div class="dataplate__head">
+                    <h3>Pourtsidis Generators</h3>
+                    <span>Data plate</span>
+                </div>
+                <dl class="dataplate__big">
+                    <div><dt>Founded</dt><dd>1991</dd></div>
+                    <div><dt>Experience</dt><dd><span data-count="34">34</span>+<span class="unit">years</span></dd></div>
+                    <div><dt>Power range</dt><dd>5–<span data-count="1500">1500</span><span class="unit">kW</span></dd></div>
+                    <div><dt>Technical support</dt><dd>24/7</dd></div>
+                </dl>
+                <dl class="dataplate__rows">
+                    <div><dt>Company</dt><dd>P. Pourtsidis – M. Stavridis O.E.</dd></div>
+                    <div><dt>Services</dt><dd>Sales · Rentals · Technical support</dd></div>
+                    <div><dt>Equipment</dt><dd>Generators · Engines · Spare parts</dd></div>
+                    <div><dt>Coverage</dt><dd>Nationwide delivery</dd></div>
+                    <div><dt>Location</dt><dd>13th km Katerini–Thessaloniki National Road, Kitros 60064</dd></div>
+                </dl>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Products -->
-<section id="products" class="section section--dark products" aria-labelledby="products-title">
+<section id="products" class="section section--navy products" aria-labelledby="products-title">
     <div class="shell">
-        <div class="grid-12 section-head">
-            <p class="section-head__label label" data-reveal><span class="label__index">01</span><span class="label__rule" aria-hidden="true"></span>Equipment</p>
-            <h2 class="section-head__title display display--h2" id="products-title" data-reveal>Power<br><span class="accent">solutions.</span></h2>
-            <p class="section-head__aside" data-reveal>Browse our extensive collection of high-quality generators, engines and spare parts.</p>
-        </div>
-
-        <div data-reveal>
-            <div class="products__tabs" role="tablist" aria-label="Product categories">
-                <button class="tab" type="button" role="tab" id="tab-generators" aria-controls="panel-generators" aria-selected="true" tabindex="0">
-                    <span class="tab__num">01</span><span class="tab__name">Generators</span>
-                </button>
-                <button class="tab" type="button" role="tab" id="tab-engines" aria-controls="panel-engines" aria-selected="false" tabindex="-1">
-                    <span class="tab__num">02</span><span class="tab__name">Engines</span>
-                </button>
-                <button class="tab" type="button" role="tab" id="tab-parts" aria-controls="panel-parts" aria-selected="false" tabindex="-1">
-                    <span class="tab__num">03</span><span class="tab__name">Spare parts</span>
-                </button>
+        <div class="grid-12 head">
+            <div class="head__main">
+                <p class="tag" data-reveal>Equipment</p>
+                <h2 class="heading" id="products-title" data-reveal>Power <em>solutions</em>.</h2>
             </div>
-
-            <div class="products__stage">
-                <!-- Generators -->
-                <article class="product is-active" role="tabpanel" id="panel-generators" aria-labelledby="tab-generators">
-                    <div class="product__media">
-                        <img src="images/1-medium.webp"
-                             srcset="images/1-small.webp 480w, images/1-medium.webp 960w, images/1.webp 1920w"
-                             sizes="(max-width: 900px) 100vw, 58vw"
-                             width="3767" height="2825"
-                             alt="Diesel generator on a steel skid in the company workshop"
-                             loading="lazy" decoding="async">
-                        <p class="product__tag mono" aria-hidden="true"><b>01</b> — Generators / 5—1500 <span class="unit">kW</span></p>
-                    </div>
-                    <div class="product__body">
-                        <div class="product__text">
-                            <h3 class="product__title">Generators</h3>
-                            <p class="product__spec">5—1500 <small>kW</small></p>
-                            <p>Ideal for businesses, factories, construction sites, and events, providing essential power during outages. Our generators ensure your space has power when you need it most.</p>
-                            <p>With automatic transfer switches and reliable power output, you'll never have to worry about power outages again.</p>
-                        </div>
-                        <ul class="specs">
-                            <li><span aria-hidden="true">A.</span><span>Power range from 5 kW to 1500 kW</span></li>
-                            <li><span aria-hidden="true">B.</span><span>Low-noise operation</span></li>
-                            <li><span aria-hidden="true">C.</span><span>Automatic transfer switches</span></li>
-                        </ul>
-                        <div><a href="#contact" class="text-link" data-subject="Sales Inquiry">Request information <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-                    </div>
-                </article>
-
-                <!-- Engines -->
-                <article class="product" role="tabpanel" id="panel-engines" aria-labelledby="tab-engines">
-                    <div class="product__media">
-                        <img src="images/9-medium.webp"
-                             srcset="images/9-small.webp 480w, images/9-medium.webp 960w, images/9.webp 1920w"
-                             sizes="(max-width: 900px) 100vw, 58vw"
-                             width="4032" height="3024"
-                             alt="Large V engine and generator at the company facility"
-                             loading="lazy" decoding="async">
-                        <p class="product__tag mono" aria-hidden="true"><b>02</b> — Engines / Industrial · Marine</p>
-                    </div>
-                    <div class="product__body">
-                        <div class="product__text">
-                            <h3 class="product__title">Engines</h3>
-                            <p class="product__spec product__spec--text">Industrial / Agricultural / Marine</p>
-                            <p>In our facility, we offer engines for industrial installations, agricultural machinery, or marine applications. Choose from our variety to ensure you meet all your needs with the right solution.</p>
-                            <p>We offer customized solutions and technical support to help you select the right engine for your specific needs.</p>
-                        </div>
-                        <ul class="specs">
-                            <li><span aria-hidden="true">A.</span><span>Reliable performance</span></li>
-                            <li><span aria-hidden="true">B.</span><span>High efficiency</span></li>
-                            <li><span aria-hidden="true">C.</span><span>Long-term reliability</span></li>
-                        </ul>
-                        <div><a href="#contact" class="text-link" data-subject="Sales Inquiry">Request information <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-                    </div>
-                </article>
-
-                <!-- Spare parts -->
-                <article class="product" role="tabpanel" id="panel-parts" aria-labelledby="tab-parts">
-                    <div class="product__media">
-                        <img src="images/3-medium.webp"
-                             srcset="images/3-small.webp 480w, images/3-medium.webp 960w, images/3.webp 1920w"
-                             sizes="(max-width: 900px) 100vw, 58vw"
-                             width="4032" height="3024"
-                             alt="Close-up of a generator engine with hoses and components"
-                             loading="lazy" decoding="async">
-                        <p class="product__tag mono" aria-hidden="true"><b>03</b> — Spare parts / Service</p>
-                    </div>
-                    <div class="product__body">
-                        <div class="product__text">
-                            <h3 class="product__title">Spare parts</h3>
-                            <p class="product__spec product__spec--text">Prevention / Maintenance / Replacement</p>
-                            <p>We offer extensive spare parts support for all our generators and engines, ensuring continuous and efficient operation of your systems.</p>
-                            <p>With a wide range of available spare parts and specialized maintenance services, we're here to meet all your needs, from preventive maintenance to immediate replacement of worn components.</p>
-                        </div>
-                        <ul class="specs">
-                            <li><span aria-hidden="true">A.</span><span>Spare parts for generators and engines</span></li>
-                            <li><span aria-hidden="true">B.</span><span>Specialized maintenance services</span></li>
-                            <li><span aria-hidden="true">C.</span><span>Fast and reliable support</span></li>
-                        </ul>
-                        <div><a href="#contact" class="text-link" data-subject="Technical Support">Request information <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-                    </div>
-                </article>
+            <div class="head__aside" data-reveal>
+                <p>Browse our extensive collection of high-quality generators, engines and spare parts.</p>
+                <p class="head__links">
+                    <span>Available equipment:</span>
+                    <a class="link-arrow" href="https://www.mascus.gr/p-pourtsidis-m-stavridis-o-e/b9107036,1,relevance,searchdealer.html" target="_blank" rel="noopener noreferrer">Mascus<span class="visually-hidden"> (opens in a new tab)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                    <a class="link-arrow" href="https://pourtsidis.car.gr/builders/" target="_blank" rel="noopener noreferrer">Car.gr<span class="visually-hidden"> (opens in a new tab)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                </p>
             </div>
         </div>
 
-        <div class="products__foot mono">
-            <span class="products__counter" aria-hidden="true"><b data-product-index>01</b> / 03</span>
-            <span>Available equipment:
-                <a class="text-link" href="https://www.mascus.gr/p-pourtsidis-m-stavridis-o-e/b9107036,1,relevance,searchdealer.html" target="_blank" rel="noopener noreferrer">Mascus<span class="visually-hidden"> (opens in a new tab)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-                <a class="text-link" href="https://pourtsidis.car.gr/builders/" target="_blank" rel="noopener noreferrer">Car.gr<span class="visually-hidden"> (opens in a new tab)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-            </span>
-        </div>
-    </div>
-</section>
-
-<!-- Company story -->
-<section id="about" class="section section--light story" aria-labelledby="about-title">
-    <div class="shell">
-        <div class="grid-12 story__head">
-            <p class="story__label label" data-reveal><span class="label__index">02</span><span class="label__rule" aria-hidden="true"></span>Since 1991</p>
-            <h2 class="story__title display display--h2" id="about-title" data-reveal><span class="outline">34+</span> years of power<br>&amp; expertise.</h2>
-        </div>
-
-        <div class="grid-12 story__body">
-            <div class="story__media">
-                <div class="frame" data-reveal="media">
-                    <img src="images/AboutUs-medium.webp"
-                         srcset="images/AboutUs-small.webp 480w, images/AboutUs-720.webp 720w, images/AboutUs-medium.webp 960w, images/AboutUs.webp 1920w"
-                         sizes="(max-width: 900px) 100vw, 60vw"
-                         width="4032" height="3024"
-                         alt="Company crane truck unloading equipment in front of the facility"
+        <div class="machines" data-reveal>
+            <!-- Generators -->
+            <article class="machine is-open">
+                <div class="machine__media">
+                    <img src="images/6-medium.webp"
+                         srcset="images/6-small.webp 480w, images/6-medium.webp 960w, images/6.webp 1024w"
+                         sizes="(max-width: 1100px) 50vw, 60vw"
+                         width="960" height="1440"
+                         alt="Enclosed diesel generator in front of the facility"
                          loading="lazy" decoding="async">
                 </div>
-                <div class="story__inset">
-                    <div class="frame" data-reveal="media" style="--i: 2">
-                        <img src="images/8-small.webp"
-                             srcset="images/8-small.webp 480w, images/8-medium.webp 960w"
-                             sizes="(max-width: 900px) 38vw, 24vw"
-                             width="4032" height="3024"
-                             alt="Generator control panel carrying the Pourtsidis - Stavridis badge"
-                             loading="lazy" decoding="async">
-                    </div>
+                <h3 class="machine__head">
+                    <button class="machine__btn" type="button" id="machine-btn-1" aria-expanded="true" aria-controls="machine-body-1">
+                        <span class="machine__num">01</span><span class="machine__name">Generators</span><span class="machine__plus" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="machine__body" id="machine-body-1" role="region" aria-labelledby="machine-btn-1">
+                    <p class="machine__spec">5–1500 kW</p>
+                    <p>Ideal for businesses, factories, construction sites, and events, providing essential power during outages. Our generators ensure your space has power when you need it most.</p>
+                    <p>With automatic transfer switches and reliable power output, you'll never have to worry about power outages again.</p>
+                    <ul class="checks">
+                        <li>Power range from 5 kW to 1500 kW</li>
+                        <li>Low-noise operation</li>
+                        <li>Automatic transfer switches</li>
+                    </ul>
+                    <a href="#contact" class="link-arrow" data-subject="Sales Inquiry">Request information <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                 </div>
-            </div>
+            </article>
 
-            <div class="story__text" data-reveal>
-                <h3>Your trusted partner in Greece</h3>
-                <p>Since 1991, P. Pourtsidis – M. Stavridis O.E. has been providing high-quality generator solutions to businesses, construction sites, factories, events, and homeowners throughout Greece.</p>
-                <p>In our facility, you can find the largest range of generators, marine engines, and even spare parts.</p>
-                <p class="story__company mono">P. Pourtsidis – M. Stavridis O.E.<br>13th km Katerini–Thessaloniki National Road</p>
-            </div>
+            <!-- Engines -->
+            <article class="machine">
+                <div class="machine__media">
+                    <img src="images/2-medium.webp"
+                         srcset="images/2-small.webp 480w, images/2-medium.webp 960w, images/2.webp 3024w"
+                         sizes="(max-width: 1100px) 50vw, 60vw"
+                         width="960" height="1280"
+                         alt="V-engine generator on an open frame in the workshop"
+                         loading="lazy" decoding="async">
+                </div>
+                <h3 class="machine__head">
+                    <button class="machine__btn" type="button" id="machine-btn-2" aria-expanded="false" aria-controls="machine-body-2">
+                        <span class="machine__num">02</span><span class="machine__name">Engines</span><span class="machine__plus" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="machine__body" id="machine-body-2" role="region" aria-labelledby="machine-btn-2">
+                    <p class="machine__spec machine__spec--text">Industrial · Agricultural · Marine</p>
+                    <p>In our facility, we offer engines for industrial installations, agricultural machinery, or marine applications. Choose from our variety to meet your needs with the right solution.</p>
+                    <p>We offer customized solutions and technical support to help you select the right engine.</p>
+                    <ul class="checks">
+                        <li>Reliable performance</li>
+                        <li>High efficiency</li>
+                        <li>Long-term reliability</li>
+                    </ul>
+                    <a href="#contact" class="link-arrow" data-subject="Sales Inquiry">Request information <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+            </article>
 
-            <div class="timeline" aria-label="Company timeline">
-                <div class="timeline__bar" data-reveal>
-                    <span class="timeline__year">1991</span>
-                    <span class="timeline__mid mono">34+ years in the Greek market</span>
-                    <span class="timeline__year timeline__year--now">2026</span>
+            <!-- Spare parts -->
+            <article class="machine">
+                <div class="machine__media">
+                    <img src="images/7.webp" width="1200" height="1600"
+                         alt="Generator in the workshop with shelves of engines and parts behind it"
+                         loading="lazy" decoding="async">
                 </div>
-                <div class="timeline__track" data-reveal="line" aria-hidden="true"><div class="ruler"></div></div>
-                <div class="timeline__facts">
-                    <div data-reveal><strong>1991</strong><span>Company founded</span></div>
-                    <div data-reveal><strong>34+</strong><span>Years of experience</span></div>
-                    <div data-reveal><strong>24/7</strong><span>Technical support</span></div>
+                <h3 class="machine__head">
+                    <button class="machine__btn" type="button" id="machine-btn-3" aria-expanded="false" aria-controls="machine-body-3">
+                        <span class="machine__num">03</span><span class="machine__name">Spare parts</span><span class="machine__plus" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="machine__body" id="machine-body-3" role="region" aria-labelledby="machine-btn-3">
+                    <p class="machine__spec machine__spec--text">Prevention · Maintenance · Replacement</p>
+                    <p>We offer extensive spare parts support for all our generators and engines, ensuring continuous and efficient operation of your systems.</p>
+                    <p>From preventive maintenance to immediate replacement of worn components, our specialists provide fast and reliable support.</p>
+                    <ul class="checks">
+                        <li>Spare parts for generators and engines</li>
+                        <li>Specialized maintenance services</li>
+                        <li>Fast and reliable support</li>
+                    </ul>
+                    <a href="#contact" class="link-arrow" data-subject="Technical Support">Request information <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
 </section>
 
-<!-- Cinematic break -->
-<section class="cinema" aria-labelledby="cinema-title">
-    <div class="cinema__media" data-parallax>
-        <img src="images/banner.webp" width="1600" height="1200"
-             alt="Generators lined up in the outdoor yard of the company facility"
-             loading="lazy" decoding="async">
-    </div>
-    <div class="shell cinema__inner">
-        <div class="cinema__top mono">
-            <span>Nationwide delivery</span>
-            <span>40.3541° N — 22.5938° E</span>
-        </div>
+<!-- Facility gallery -->
+<section class="section--concrete gallery" aria-labelledby="gallery-title">
+    <div class="shell gallery__head">
         <div>
-            <h2 class="cinema__title display" id="cinema-title" data-reveal>Power wherever you <span class="accent">need it.</span></h2>
-            <ul class="cinema__uses" data-reveal>
+            <p class="tag" data-reveal>From our facility</p>
+            <h2 class="heading" id="gallery-title" data-reveal>Power wherever you <em>need it</em>.</h2>
+            <ul class="uses" data-reveal aria-label="Applications">
                 <li>Construction sites</li>
                 <li>Factories</li>
                 <li>Events</li>
                 <li>Backup power</li>
             </ul>
         </div>
+        <div class="gallery__controls" data-reveal>
+            <button class="round-btn round-btn--prev" type="button" data-gallery="prev" aria-controls="gallery-track" aria-label="Previous photos"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <button class="round-btn" type="button" data-gallery="next" aria-controls="gallery-track" aria-label="Next photos"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+    </div>
+    <div class="gallery__track" id="gallery-track" tabindex="0" role="region" aria-label="Photos from our facility">
+        <figure class="photo gallery__item gallery__item--wide">
+            <img src="images/banner.webp" width="1600" height="1200" alt="Generators lined up in the outdoor yard of the facility" loading="lazy" decoding="async">
+            <figcaption>The outdoor yard</figcaption>
+        </figure>
+        <figure class="photo gallery__item gallery__item--tall">
+            <img src="images/5.webp" width="1200" height="1600" alt="Generator with control panel in the workshop" loading="lazy" decoding="async">
+            <figcaption>In the workshop</figcaption>
+        </figure>
+        <figure class="photo gallery__item gallery__item--wide">
+            <img src="images/8-medium.webp" srcset="images/8-small.webp 480w, images/8-medium.webp 960w" sizes="620px" width="960" height="720" alt="Generator control panel carrying the Pourtsidis - Stavridis badge" loading="lazy" decoding="async">
+            <figcaption>Control panel</figcaption>
+        </figure>
+        <figure class="photo gallery__item gallery__item--wide">
+            <img src="images/1-medium.webp" srcset="images/1-small.webp 480w, images/1-medium.webp 960w" sizes="620px" width="960" height="720" alt="Diesel generator on a steel skid" loading="lazy" decoding="async">
+            <figcaption>Generator on a skid</figcaption>
+        </figure>
+        <figure class="photo gallery__item gallery__item--wide">
+            <img src="images/4-medium.webp" srcset="images/4-small.webp 480w, images/4-medium.webp 960w" sizes="620px" width="960" height="720" alt="Generator engine in the warehouse" loading="lazy" decoding="async">
+            <figcaption>Generator engine</figcaption>
+        </figure>
+        <figure class="photo gallery__item gallery__item--wide">
+            <img src="images/3-medium.webp" srcset="images/3-small.webp 480w, images/3-medium.webp 960w" sizes="620px" width="960" height="720" alt="Close-up of an engine with hoses and components" loading="lazy" decoding="async">
+            <figcaption>Engine detail</figcaption>
+        </figure>
     </div>
 </section>
 
 <!-- Rentals -->
-<section id="services" class="section section--dark rentals" aria-labelledby="rentals-title">
+<section id="services" class="section section--navy rentals" aria-labelledby="rentals-title">
     <div class="shell">
-        <div class="grid-12 section-head">
-            <p class="section-head__label label" data-reveal><span class="label__index">03</span><span class="label__rule" aria-hidden="true"></span>Rentals</p>
-            <h2 class="section-head__title display display--h2" id="rentals-title" data-reveal>Generator<br>rentals.</h2>
-            <p class="section-head__aside" data-reveal>Flexible rental solutions for any power requirement throughout Greece.</p>
+        <div class="grid-12 head">
+            <div class="head__main">
+                <p class="tag" data-reveal>Rentals</p>
+                <h2 class="heading" id="rentals-title" data-reveal>Generator <em>rentals</em>.</h2>
+            </div>
+            <div class="head__aside" data-reveal>
+                <p>Flexible rental solutions for any power requirement throughout Greece.</p>
+            </div>
         </div>
 
-        <ol class="rentals__list" data-rentals>
-            <li class="rental is-active">
-                <figure class="rental__media">
+        <ol class="scenarios">
+            <li class="scenario rivets">
+                <figure class="photo scenario__media">
                     <img src="images/εικόνα_Viber_2025-03-31_10-45-07-516.webp" width="1600" height="1200"
                          alt="Silent diesel generators in the showroom"
                          loading="lazy" decoding="async">
-                    <figcaption class="mono" aria-hidden="true">01 / Events</figcaption>
                 </figure>
-                <div class="rental__body">
-                    <span class="rental__num" aria-hidden="true">01</span>
-                    <h3 class="rental__title"><button type="button" aria-expanded="true" aria-controls="rental-1">Events</button></h3>
-                    <div class="rental__detail" id="rental-1">
-                        <div>
-                            <p>Reliable power solutions for concerts, festivals, weddings, and corporate events throughout Greece.</p>
-                            <ul class="chips">
-                                <li>Silent operation</li>
-                                <li>Flexible rental periods</li>
-                                <li>On-site technical support</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="scenario__body">
+                    <p class="scenario__count"><b>01</b> / 03</p>
+                    <h3>Events</h3>
+                    <p>Reliable power solutions for concerts, festivals, weddings, and corporate events throughout Greece.</p>
+                    <ul class="checks">
+                        <li>Silent operation</li>
+                        <li>Flexible rental periods</li>
+                        <li>On-site technical support</li>
+                    </ul>
                 </div>
             </li>
-            <li class="rental">
-                <figure class="rental__media">
+            <li class="scenario rivets">
+                <figure class="photo scenario__media">
                     <img src="images/banner2.webp" width="1280" height="958"
-                         alt="Generators and service vehicles outside the company facility"
+                         alt="Generators and service vehicles outside the facility"
                          loading="lazy" decoding="async">
-                    <figcaption class="mono" aria-hidden="true">02 / Construction</figcaption>
                 </figure>
-                <div class="rental__body">
-                    <span class="rental__num" aria-hidden="true">02</span>
-                    <h3 class="rental__title"><button type="button" aria-expanded="false" aria-controls="rental-2">Construction sites</button></h3>
-                    <div class="rental__detail" id="rental-2">
-                        <div>
-                            <p>Heavy-duty generators for construction projects in remote locations and urban centers.</p>
-                            <ul class="chips">
-                                <li>Durable site-ready units</li>
-                                <li>Long-term rental discounts</li>
-                                <li>Delivery and setup</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="scenario__body">
+                    <p class="scenario__count"><b>02</b> / 03</p>
+                    <h3>Construction sites</h3>
+                    <p>Heavy-duty generators for construction projects in remote locations and urban centers.</p>
+                    <ul class="checks">
+                        <li>Durable site-ready units</li>
+                        <li>Long-term rental discounts</li>
+                        <li>Delivery and setup</li>
+                    </ul>
                 </div>
             </li>
-            <li class="rental">
-                <figure class="rental__media">
-                    <img src="images/2-medium.webp"
-                         srcset="images/2-small.webp 480w, images/2-medium.webp 960w"
-                         sizes="(max-width: 900px) 100vw, 50vw"
-                         width="960" height="1280"
-                         alt="V-engine generator ready for delivery"
+            <li class="scenario rivets">
+                <figure class="photo scenario__media">
+                    <img src="images/AboutUs-medium.webp"
+                         srcset="images/AboutUs-small.webp 480w, images/AboutUs-720.webp 720w, images/AboutUs-medium.webp 960w, images/AboutUs.webp 1920w"
+                         sizes="(max-width: 900px) 100vw, 55vw"
+                         width="4032" height="3024"
+                         alt="Company crane truck unloading equipment"
                          loading="lazy" decoding="async">
-                    <figcaption class="mono" aria-hidden="true">03 / Emergency</figcaption>
                 </figure>
-                <div class="rental__body">
-                    <span class="rental__num" aria-hidden="true">03</span>
-                    <h3 class="rental__title"><button type="button" aria-expanded="false" aria-controls="rental-3">Emergency backup</button></h3>
-                    <div class="rental__detail" id="rental-3">
-                        <div>
-                            <p>Short-term backup power for businesses and homes during power outages or grid maintenance.</p>
-                            <ul class="chips">
-                                <li>Rapid deployment</li>
-                                <li>Flexible capacity options</li>
-                                <li>Island delivery available</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="scenario__body">
+                    <p class="scenario__count"><b>03</b> / 03</p>
+                    <h3>Emergency backup</h3>
+                    <p>Short-term backup power for businesses and homes during power outages or grid maintenance.</p>
+                    <ul class="checks">
+                        <li>Rapid deployment</li>
+                        <li>Flexible capacity options</li>
+                        <li>Island delivery available</li>
+                    </ul>
                 </div>
             </li>
         </ol>
 
         <div class="rentals__foot">
-            <a href="#contact" class="btn btn--ghost" data-subject="Rental Inquiry">Request a rental quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="#contact" class="btn btn--red" data-subject="Rental Inquiry">Request a rental quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
     </div>
 </section>
 
-<!-- Why us: specification sheet -->
-<section id="why-us" class="section section--light spec" aria-labelledby="why-title">
-    <div class="shell grid-12">
-        <div class="spec__intro">
-            <p class="label" data-reveal><span class="label__index">04</span><span class="label__rule" aria-hidden="true"></span>Why Pourtsidis</p>
-            <h2 class="display" id="why-title" data-reveal>Our<br>difference.</h2>
-            <p class="lead" data-reveal style="margin-top: 1.2rem">Why choose Pourtsidis Generators.</p>
-            <div class="frame" data-reveal="media">
-                <img src="images/AboutUs1.webp" width="1024" height="768"
-                     alt="Inside the warehouse with engines, generators and spare parts"
-                     loading="lazy" decoding="async">
+<!-- Why us: control console -->
+<section id="why-us" class="section why" aria-labelledby="why-title">
+    <div class="shell">
+        <div class="grid-12 head">
+            <div class="head__main">
+                <p class="tag" data-reveal>Our difference</p>
+                <h2 class="heading" id="why-title" data-reveal>Why choose <em>Pourtsidis Generators</em>.</h2>
             </div>
         </div>
 
-        <ol class="spec__rows">
-            <li class="spec-row" data-reveal>
-                <span class="spec-row__num mono">01</span>
-                <span class="spec-row__key" aria-hidden="true">24/7</span>
-                <div>
+        <div class="console rivets" data-reveal>
+            <p class="console__bar" aria-hidden="true"><span>Control panel</span><span>Pourtsidis · Kitros</span></p>
+            <ul class="console__grid">
+                <li class="module">
+                    <span class="module__status" aria-hidden="true"><span class="led"></span>Active</span>
+                    <span class="module__value" aria-hidden="true">24/7</span>
                     <h3>24/7 support</h3>
                     <p>Our technical support team is available around the clock to assist you with any issues or emergencies.</p>
-                </div>
-            </li>
-            <li class="spec-row" data-reveal>
-                <span class="spec-row__num mono">02</span>
-                <span class="spec-row__key spec-row__key--muted" aria-hidden="true">Service</span>
-                <div>
+                </li>
+                <li class="module">
+                    <span class="module__status" aria-hidden="true"><span class="led"></span>Active</span>
+                    <span class="module__value" aria-hidden="true">Service</span>
                     <h3>Maintenance service</h3>
                     <p>Comprehensive maintenance programs to keep your generators running at peak performance.</p>
-                </div>
-            </li>
-            <li class="spec-row" data-reveal>
-                <span class="spec-row__num mono">03</span>
-                <span class="spec-row__key" aria-hidden="true">Greece</span>
-                <div>
+                </li>
+                <li class="module">
+                    <span class="module__status" aria-hidden="true"><span class="led"></span>Active</span>
+                    <span class="module__value" aria-hidden="true">Greece</span>
                     <h3>Nationwide delivery</h3>
                     <p>Fast delivery and installation services throughout Greece.</p>
-                </div>
-            </li>
-            <li class="spec-row" data-reveal>
-                <span class="spec-row__num mono">04</span>
-                <span class="spec-row__key spec-row__key--muted" aria-hidden="true">Quality</span>
-                <div>
+                </li>
+                <li class="module">
+                    <span class="module__status" aria-hidden="true"><span class="led"></span>Active</span>
+                    <span class="module__value" aria-hidden="true">Quality</span>
                     <h3>Quality guarantee</h3>
                     <p>We offer only top-quality generators from respected international manufacturers, with full warranties.</p>
-                </div>
-            </li>
-        </ol>
+                </li>
+            </ul>
+        </div>
     </div>
 </section>
 
-<!-- Conversion CTA -->
-<section class="section section--dark cta" aria-labelledby="cta-title">
-    <div class="cta__bg" aria-hidden="true">
-        <img src="images/5.webp" width="1200" height="1600" alt="" loading="lazy" decoding="async">
-    </div>
+<!-- Conversion band -->
+<section class="cta" aria-labelledby="cta-title">
     <div class="shell grid-12">
-        <p class="cta__label label" data-reveal><span class="label__index">05</span><span class="label__rule" aria-hidden="true"></span>Direct support</p>
-        <h2 class="cta__title display" id="cta-title" data-reveal>Need<br><span class="accent">power?</span></h2>
-        <div class="cta__body" data-reveal>
-            <p class="lead">Tell us what you need and we will recommend the right solution.</p>
-            <a href="#contact" class="btn btn--primary">Request a quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <div class="cta__main">
+            <p class="tag" data-reveal>Direct support</p>
+            <h2 class="cta__title" id="cta-title" data-reveal>Need power?</h2>
+            <p class="cta__lead" data-reveal>Tell us what you need and we will recommend the right solution.</p>
+            <a href="#contact" class="btn btn--white" data-reveal>Request a quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
         <div class="cta__contacts" data-reveal>
             <a class="cta__contact" href="tel:+302351600824">
-                <span class="mono">Office</span>
+                <span>Office</span>
                 <strong>+30 2351 600824</strong>
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
             <a class="cta__contact" href="tel:+306977831465">
-                <span class="mono">Mobile</span>
+                <span>Mobile</span>
                 <strong>+30 6977 831465</strong>
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
             <a class="cta__contact" href="mailto:dimitrispourtsidis@yahoo.gr">
-                <span class="mono">Email</span>
+                <span>Email</span>
                 <strong>dimitrispourtsidis@yahoo.gr</strong>
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
+            <p class="cta__note">Sunday: closed, with emergency support available.</p>
         </div>
     </div>
 </section>
 
 <!-- Contact -->
-<section id="contact" class="section section--light contact" aria-labelledby="contact-title">
+<section id="contact" class="section contact" aria-labelledby="contact-title">
     <div class="shell">
         <div class="grid-12">
             <div class="contact__intro">
-                <p class="label" data-reveal><span class="label__index">06</span><span class="label__rule" aria-hidden="true"></span>Contact</p>
-                <h2 class="display" id="contact-title" data-reveal>Let's<br>talk.</h2>
+                <p class="tag" data-reveal>Contact</p>
+                <h2 class="heading" id="contact-title" data-reveal>Let's <em>talk</em>.</h2>
                 <p class="lead" data-reveal>Get in touch with us for quotes, support, or information about our generator products and services.</p>
+
+                <dl class="info" data-reveal>
+                    <div>
+                        <dt><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span class="visually-hidden">Location</span></dt>
+                        <dd><strong aria-hidden="true">Location</strong>13th km Katerini–Thessaloniki National Road, Kitros 60064, Greece</dd>
+                    </div>
+                    <div>
+                        <dt><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="visually-hidden">Phone numbers</span></dt>
+                        <dd><strong aria-hidden="true">Phone numbers</strong>
+                            <span class="phones">
+                                <a href="tel:+302351600824">+30 2351 600824</a>
+                                <a href="tel:+306977831465">+30 6977 831465</a>
+                                <a href="tel:+306977634666">+30 6977 634666</a>
+                            </span>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span class="visually-hidden">Email</span></dt>
+                        <dd><strong aria-hidden="true">Email</strong>Sales: <a href="mailto:dimitrispourtsidis@yahoo.gr">dimitrispourtsidis@yahoo.gr</a></dd>
+                    </div>
+                    <div>
+                        <dt><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span class="visually-hidden">Business hours</span></dt>
+                        <dd><strong aria-hidden="true">Business hours</strong>
+                            <span class="hours">
+                                <span>Monday – Friday</span><span>8:00 AM – 6:00 PM</span>
+                                <span>Saturday</span><span>9:00 AM – 3:00 PM</span>
+                                <span>Sunday</span><span>Closed (emergency support available)</span>
+                            </span>
+                        </dd>
+                    </div>
+                </dl>
             </div>
 
-            <div class="contact__form" data-reveal>
-                <h3 class="visually-hidden">Send us a message</h3>
+            <div class="sheet" data-reveal>
+                <div class="sheet__head">
+                    <h3>Send us a message</h3>
+                    <span>Request form</span>
+                </div>
                 <form id="contactForm" class="form" novalidate
                       data-msg-required="Please fill in this field."
                       data-msg-email="Please enter a valid email address."
@@ -554,57 +528,24 @@
                     </div>
                     <p class="form__status" role="alert" id="form-status"></p>
                     <div class="form__actions">
-                        <button type="submit" class="btn btn--primary">Prepare email <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                        <button type="submit" class="btn btn--red">Prepare email <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
                         <p class="form__note">Your email app will open with the message ready to send.</p>
                     </div>
                 </form>
             </div>
         </div>
 
-        <div class="grid-12 locate">
-            <dl class="locate__info" data-reveal>
-                <div class="info-row">
-                    <dt class="mono">Location</dt>
-                    <dd>13th km Katerini–Thessaloniki National Road, Kitros 60064, Greece</dd>
-                </div>
-                <div class="info-row">
-                    <dt class="mono">Phone</dt>
-                    <dd class="phones">
-                        <a href="tel:+302351600824">+30 2351 600824</a>
-                        <a href="tel:+306977831465">+30 6977 831465</a>
-                        <a href="tel:+306977634666">+30 6977 634666</a>
-                    </dd>
-                </div>
-                <div class="info-row">
-                    <dt class="mono">Email</dt>
-                    <dd>Sales: <a href="mailto:dimitrispourtsidis@yahoo.gr">dimitrispourtsidis@yahoo.gr</a></dd>
-                </div>
-                <div class="info-row">
-                    <dt class="mono">Hours</dt>
-                    <dd class="hours">
-                        <span>Monday – Friday</span><span>8:00 AM – 6:00 PM</span>
-                        <span>Saturday</span><span>9:00 AM – 3:00 PM</span>
-                        <span>Sunday</span><span>Closed (emergency support available)</span>
-                    </dd>
-                </div>
-            </dl>
-
-            <div class="locate__map" data-reveal>
-                <div class="map">
-                    <p class="map__label mono"><span><b>●</b> Kitros 60064 · GR</span><span>40.3541° N / 22.5938° E</span></p>
-                    <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.1839848947604!2d22.593811676564746!3d40.35409267144394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1357fd7f6241a193%3A0x4d22880c0f6e27f7!2z16DOn9Cf0KXQoNKk0KPQhtCU0JfQoy3QodCi0JDQktCg0JjQlNCT0KMg0J4u0JUu!5e0!3m2!1sen!2sgr!4v1712334350147!5m2!1sen!2sgr"
-                            width="600"
-                            height="400"
-                            title="Pourtsidis Generators location map"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    <span class="map__corner map__corner--tl" aria-hidden="true"></span>
-                    <span class="map__corner map__corner--br" aria-hidden="true"></span>
-                </div>
-            </div>
+        <div class="map" data-reveal>
+            <p class="map__label" aria-hidden="true"><span class="led"></span>Pourtsidis Generators · Kitros 60064</p>
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.1839848947604!2d22.593811676564746!3d40.35409267144394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1357fd7f6241a193%3A0x4d22880c0f6e27f7!2z16DOn9Cf0KXQoNKk0KPQhtCU0JfQoy3QodCi0JDQktCg0JjQlNCT0KMg0J4u0JUu!5e0!3m2!1sen!2sgr!4v1712334350147!5m2!1sen!2sgr"
+                    width="600"
+                    height="400"
+                    title="Pourtsidis Generators location map"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </div>
 </section>
@@ -615,8 +556,11 @@
     <div class="shell">
         <div class="grid-12 footer__top">
             <div class="footer__brand">
-                <p class="footer__wordmark">Pourtsidis<span>Generators</span></p>
-                <p class="footer__tagline mono">Power since 1991.</p>
+                <a class="brand" href="#home" aria-label="Pourtsidis Generators - Home">
+                    <span class="brand__plate"><img src="favicon.webp" width="256" height="256" alt="" loading="lazy"></span>
+                    <span class="brand__text" aria-hidden="true">Pourtsidis<span>Generators</span></span>
+                </a>
+                <p class="footer__tagline">Power since <em>1991</em>.</p>
                 <p class="footer__sub">Your reliable power partner.</p>
             </div>
             <div class="footer__col footer__col--nav">
@@ -645,14 +589,13 @@
                     <li><a href="https://pourtsidis.car.gr/builders/" target="_blank" rel="noopener noreferrer">Car.gr<span class="visually-hidden"> (opens in a new tab)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
                     <li><a href="https://www.mascus.gr/p-pourtsidis-m-stavridis-o-e/b9107036,1,relevance,searchdealer.html" target="_blank" rel="noopener noreferrer">Mascus.gr<span class="visually-hidden"> (opens in a new tab)</span> <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></li>
                 </ul>
-                <div class="lang footer__lang" aria-label="Language">
-                    <a href="index.html" lang="el" hreflang="el">GR</a>
-                    <span class="lang__sep" aria-hidden="true"></span>
-                    <a href="index-en.html" lang="en" aria-current="page">EN</a>
+                <div class="lang" aria-label="Language">
+                    <a href="index.html" lang="el" hreflang="el"><span>GR</span></a>
+                    <a href="index-en.html" lang="en" aria-current="page"><span>EN</span></a>
                 </div>
             </div>
         </div>
-        <div class="footer__bottom mono">
+        <div class="footer__bottom">
             <p>&copy; 2026 Pourtsidis Generators. All rights reserved.</p>
             <p>P. Pourtsidis – M. Stavridis O.E.</p>
             <a href="#home">Back to top <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
